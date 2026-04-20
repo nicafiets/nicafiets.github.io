@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NICAFIETS | Mobile Bike Service</title>
+  <meta
+    name="description"
+    content="Premium mobile bike service in Nijmegen. Repairs, accessories and on-location installation at your home, school or work."
+  />
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background:
+        radial-gradient(circle at top right, rgba(0, 163, 255, 0.12), transparent 20%),
+        linear-gradient(180deg, #081018 0%, #0b0f14 100%);
+      color: #f5f7fa;
+      line-height: 1.5;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .container {
+      width: min(1160px, 92%);
+      margin: 0 auto;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      backdrop-filter: blur(12px);
+      background: rgba(8, 16, 24, 0.78);
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 16px 0;
+      gap: 20px;
+    }
+
+    .brand {
+      font-size: 1.08rem;
+      font-weight: 800;
+      letter-spacing: 1.2px;
+    }
+
+    .brand small {
+      display: block;
+      font-size: 0.72rem;
+      font-weight: 500;
+      opacity: 0.7;
+      margin-top: 2px;
+      letter-spacing: 0.5px;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      font-size: 0.95rem;
+      color: rgba(255,255,255,0.84);
+    }
+
+    .nav-cta {
+      padding: 10px 14px;
+      border-radius: 12px;
+      background: #00a3ff;
+      color: #081018;
+      font-weight: 700;
+    }
+
+    .hero {
+      padding: 84px 0 58px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 26px;
+      align-items: stretch;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: rgba(0,163,255,0.12);
+      color: #8fdbff;
+      font-size: 0.86rem;
+      margin-bottom: 18px;
+      border: 1px solid rgba(0,163,255,0.18);
+    }
+
+    h1 {
+      margin: 0 0 16px;
+      font-size: clamp(2.4rem, 5.4vw, 4.9rem);
+      line-height: 0.95;
+      letter-spacing: -1.6px;
+      max-width: 720px;
+    }
+
+    .accent {
+      color: #00a3ff;
+    }
+
+    .lead {
+      max-width: 720px;
+      font-size: 1.1rem;
+      color: rgba(255,255,255,0.82);
+      margin: 0 0 24px;
+    }
+
+    .button-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 18px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 14px 18px;
+      border-radius: 14px;
+      font-weight: 700;
+      transition: transform 0.18s ease, opacity 0.18s ease, border-color 0.18s ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-1px);
+      opacity: 0.98;
+    }
+
+    .btn-primary {
+      background: #00a3ff;
+      color: #081018;
+    }
+
+    .btn-secondary {
+      border: 1px solid rgba(255,255,255,0.14);
+      color: #f5f7fa;
+      background: rgba(255,255,255,0.03);
+    }
+
+    .micro-proof {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      color: rgba(255,255,255,0.7);
+      font-size: 0.95rem;
+    }
+
+    .micro-proof span {
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .panel,
+    .card {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 24px;
+      box-shadow: 0 14px 34px rgba(0,0,0,0.22);
+    }
+
+    .hero-panel {
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      min-height: 100%;
+    }
+
+    .hero-panel h3 {
+      margin: 0 0 12px;
+      font-size: 1.15rem;
+    }
+
+    .hero-list {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .hero-list li {
+      padding: 12px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      color: rgba(255,255,255,0.8);
+    }
+
+    .hero-list li:last-child {
+      border-bottom: none;
+    }
+
+    .hero-note {
+      margin-top: 18px;
+      padding: 16px;
+      border-radius: 18px;
+      background: rgba(0,163,255,0.08);
+      border: 1px solid rgba(0,163,255,0.14);
+      color: #d7f2ff;
+      font-size: 0.95rem;
+    }
+
+    section {
+      padding: 34px 0 62px;
+    }
+
+    .section-head {
+      margin-bottom: 22px;
+    }
+
+    .section-head h2 {
+      margin: 0 0 10px;
+      font-size: 2rem;
+      letter-spacing: -0.5px;
+    }
+
+    .section-head p {
+      margin: 0;
+      color: rgba(255,255,255,0.74);
+      max-width: 760px;
+    }
+
+    .grid-3,
+    .grid-2 {
+      display: grid;
+      gap: 18px;
+    }
+
+    .grid-3 {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    .grid-2 {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .card {
+      padding: 24px;
+    }
+
+    .card h3 {
+      margin: 0 0 10px;
+      font-size: 1.08rem;
+    }
+
+    .card p {
+      margin: 0;
+      color: rgba(255,255,255,0.74);
+    }
+
+    .highlight {
+      color: #92ddff;
+      font-weight: 700;
+    }
+
+    .cta-box {
+      padding: 34px;
+      border-radius: 28px;
+      text-align: center;
+      background:
+        linear-gradient(180deg, rgba(0,163,255,0.14), rgba(255,255,255,0.03));
+      border: 1px solid rgba(255,255,255,0.08);
+      box-shadow: 0 16px 38px rgba(0,0,0,0.22);
+    }
+
+    .cta-box h2 {
+      margin: 0 0 12px;
+      font-size: 2rem;
+    }
+
+    .cta-box p {
+      margin: 0 auto 22px;
+      max-width: 760px;
+      color: rgba(255,255,255,0.76);
+    }
+
+    .social-row {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 12px;
+      margin-bottom: 14px;
+    }
+
+    .footer-note {
+      color: rgba(255,255,255,0.64);
+      font-size: 0.95rem;
+    }
+
+    footer {
+      padding: 18px 0 42px;
+      color: rgba(255,255,255,0.56);
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 900px) {
+      .hero-grid,
+      .grid-3,
+      .grid-2 {
+        grid-template-columns: 1fr;
+      }
+
+      .nav-links a:not(.nav-cta) {
+        display: none;
+      }
+
+      .hero {
+        padding-top: 62px;
+      }
+
+      h1 {
+        line-height: 1;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <div class="brand">
+        NICAFIETS
+        <small>MOBILE BIKE SERVICE</small>
+      </div>
+
+      <nav class="nav-links">
+        <a href="#services">Services</a>
+        <a href="#benefits">Benefits</a>
+        <a href="#contact">Contact</a>
+        <a class="nav-cta" href="https://wa.me/31643270969" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <div class="eyebrow">Premium mobile bike service in Nijmegen</div>
+
+          <h1>
+            Mobile bike service
+            <span class="accent">without leaving home</span>.
+          </h1>
+
+          <p class="lead">
+            NICAFIETS comes to your home, school or work for repairs, accessories and practical bike upgrades. Clean service, direct communication and less wasted time.
+          </p>
+
+          <div class="button-row">
+            <a class="btn btn-primary" href="https://wa.me/31643270969" target="_blank" rel="noopener noreferrer">Book on WhatsApp</a>
+            <a class="btn btn-secondary" href="#services">View services</a>
+          </div>
+
+          <div class="micro-proof">
+            <span>At your location</span>
+            <span>Fast contact</span>
+            <span>Clean service</span>
+            <span>Product availability upon request</span>
+          </div>
+        </div>
+
+        <div class="panel hero-panel">
+          <div>
+            <h3>How it works</h3>
+            <ul class="hero-list">
+              <li>Send a photo of your bike or problem</li>
+              <li>Receive a quick quote and practical advice</li>
+              <li>Choose your time and location</li>
+              <li>NICAFIETS comes to you</li>
+            </ul>
+          </div>
+
+          <div class="hero-note">
+            Save time, avoid workshop hassle and get support where your bike already is.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="services">
+      <div class="container">
+        <div class="section-head">
+          <h2>Services</h2>
+          <p>
+            Simple, practical and professional solutions for daily cyclists who want comfort, speed and clear communication.
+          </p>
+        </div>
+
+        <div class="grid-3">
+          <div class="card">
+            <h3>Repairs</h3>
+            <p>
+              Flat tires, brake adjustment, chain service and minor bike repairs directly <span class="highlight">at your location</span>.
+            </p>
+          </div>
+
+          <div class="card">
+            <h3>Accessories</h3>
+            <p>
+              Tires, Inner, Crates, lights, locks and useful upgrades with delivery and installation options when needed.
+            </p>
+          </div>
+
+          <div class="card">
+            <h3>Quick support</h3>
+            <p>
+              Easy communication through WhatsApp so you can get help faster and avoid unnecessary waiting.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="benefits">
+      <div class="container">
+        <div class="section-head">
+          <h2>Why people choose NICAFIETS</h2>
+          <p>
+            This is not just about fixing a bike. It is about saving effort, keeping your day moving and getting service in a more comfortable way.
+          </p>
+        </div>
+
+        <div class="grid-2">
+          <div class="card">
+            <h3>More convenience</h3>
+            <p>
+              No need to take your bike across town. NICAFIETS comes to your home, school or work in Nijmegen.
+            </p>
+          </div>
+
+          <div class="card">
+            <h3>More confidence</h3>
+            <p>
+              A cleaner, more professional experience with direct contact and a brand that looks serious from the first message.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="container">
+        <div class="cta-box">
+          <h2>Need a repair or accessory?</h2>
+          <p>
+            Send a message with a photo of your bike and your location. We will reply with the fastest possible solution for your situation.
+          </p>
+
+          <div class="social-row">
+            <a class="btn btn-primary" href="https://wa.me/31643270969" target="_blank" rel="noopener noreferrer">Open WhatsApp</a>
+            <a class="btn btn-secondary" href="https://instagram.com/vangomez.nl" target="_blank" rel="noopener noreferrer">Instagram</a>
+            <a class="btn btn-secondary" href="https://tiktok.com/@vangomez024" target="_blank" rel="noopener noreferrer">TikTok</a>
+          </div>
+
+          <div class="footer-note">
+            WhatsApp: +31 6 43270969 · TikTok: @vangomez024 · Instagram: @vangomez.nl
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      © 2026 NICAFIETS — Mobile Bike Service
+    </div>
+  </footer>
+</body>
+</html>
