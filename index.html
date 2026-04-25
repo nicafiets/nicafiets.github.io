@@ -6,77 +6,40 @@
   <title>NICAFIETS | Catalog & Mobile Bike Service</title>
   <meta name="description" content="NICAFIETS catalog: bike accessories, tires, inner tubes, locks, lights and mobile bike service in Nijmegen. Order by WhatsApp or pay through Mollie payment links." />
   <style>
-    :root{
-      --bg:#0b0f14;--card:#121a25;--card-2:#0f1620;--line:rgba(255,255,255,0.08);
-      --text:#f5f7fa;--muted:rgba(255,255,255,0.72);--muted-2:rgba(255,255,255,0.56);
-      --brand:#00a3ff;--brand-soft:rgba(0,163,255,0.12);--success:#7be0a4;
-      --shadow:0 16px 40px rgba(0,0,0,0.28);--radius:24px;
-    }
+    :root{--bg:#0b0f14;--card:#121a25;--card-2:#0f1620;--line:rgba(255,255,255,0.08);--text:#f5f7fa;--muted:rgba(255,255,255,0.72);--muted-2:rgba(255,255,255,0.56);--brand:#00a3ff;--brand-soft:rgba(0,163,255,0.12);--success:#7be0a4;--shadow:0 16px 40px rgba(0,0,0,0.28);--radius:24px}
     *{box-sizing:border-box} html{scroll-behavior:smooth}
-    body{margin:0;font-family:Arial,Helvetica,sans-serif;background:
-      radial-gradient(circle at top right, rgba(0,163,255,0.10), transparent 18%),
-      linear-gradient(180deg, #081018 0%, #0b0f14 100%);color:var(--text);line-height:1.5}
-    a{text-decoration:none;color:inherit} img{max-width:100%;display:block}
-    .container{width:min(1180px,92%);margin:0 auto}
+    body{margin:0;font-family:Arial,Helvetica,sans-serif;background:radial-gradient(circle at top right, rgba(0,163,255,0.10), transparent 18%),linear-gradient(180deg, #081018 0%, #0b0f14 100%);color:var(--text);line-height:1.5}
+    a{text-decoration:none;color:inherit} img{max-width:100%;display:block}.container{width:min(1180px,92%);margin:0 auto}
     header{position:sticky;top:0;z-index:50;backdrop-filter:blur(12px);background:rgba(8,16,24,0.82);border-bottom:1px solid var(--line)}
     .nav{display:flex;justify-content:space-between;align-items:center;gap:18px;padding:16px 0}
-    .brand{font-size:1.08rem;font-weight:800;letter-spacing:1.2px}
-    .brand small{display:block;margin-top:2px;font-size:.72rem;font-weight:500;color:var(--muted);letter-spacing:.5px}
+    .brand{font-size:1.08rem;font-weight:800;letter-spacing:1.2px}.brand small{display:block;margin-top:2px;font-size:.72rem;font-weight:500;color:var(--muted);letter-spacing:.5px}
     .nav-links{display:flex;align-items:center;gap:16px;color:rgba(255,255,255,.85);font-size:.95rem;flex-wrap:wrap}
     .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:13px 17px;border-radius:14px;font-weight:700;border:1px solid transparent;transition:transform .18s ease, opacity .18s ease;cursor:pointer;white-space:nowrap}
-    .btn:hover{transform:translateY(-1px);opacity:.98}
-    .btn-primary{background:var(--brand);color:#081018}
-    .btn-secondary{background:rgba(255,255,255,.03);border-color:rgba(255,255,255,.12);color:var(--text)}
-    .btn-whatsapp{background:#25D366;color:#081018}.btn-pay{background:#f7c948;color:#081018}
-    .btn-small{padding:10px 14px;border-radius:12px;font-size:.92rem}
-    .nav-cta{padding:10px 14px;border-radius:12px;background:var(--brand);color:#081018;font-weight:700}
+    .btn:hover{transform:translateY(-1px);opacity:.98}.btn-primary{background:var(--brand);color:#081018}.btn-secondary{background:rgba(255,255,255,.03);border-color:rgba(255,255,255,.12);color:var(--text)}
+    .btn-whatsapp{background:#25D366;color:#081018}.btn-pay{background:#f7c948;color:#081018}.btn-small{padding:10px 14px;border-radius:12px;font-size:.92rem}.nav-cta{padding:10px 14px;border-radius:12px;background:var(--brand);color:#081018;font-weight:700}
     .hero{padding:82px 0 34px}.hero-grid{display:grid;grid-template-columns:1.12fr .88fr;gap:26px;align-items:stretch}
     .eyebrow{display:inline-block;padding:8px 12px;border-radius:999px;background:var(--brand-soft);border:1px solid rgba(0,163,255,.18);color:#8fdbff;font-size:.86rem;margin-bottom:18px}
-    h1{margin:0 0 16px;font-size:clamp(2.4rem,5.4vw,4.9rem);line-height:.95;letter-spacing:-1.6px;max-width:760px}
-    .accent{color:var(--brand)} .lead{max-width:760px;font-size:1.1rem;color:rgba(255,255,255,.82);margin:0 0 24px}
-    .button-row{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:18px}
-    .micro-proof{display:flex;flex-wrap:wrap;gap:12px;color:rgba(255,255,255,.7);font-size:.95rem}
-    .micro-proof span{padding:8px 12px;border-radius:999px;background:rgba(255,255,255,.04);border:1px solid var(--line)}
+    h1{margin:0 0 16px;font-size:clamp(2.4rem,5.4vw,4.9rem);line-height:.95;letter-spacing:-1.6px;max-width:760px}.accent{color:var(--brand)} .lead{max-width:760px;font-size:1.1rem;color:rgba(255,255,255,.82);margin:0 0 24px}
+    .button-row{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:18px}.micro-proof{display:flex;flex-wrap:wrap;gap:12px;color:rgba(255,255,255,.7);font-size:.95rem}.micro-proof span{padding:8px 12px;border-radius:999px;background:rgba(255,255,255,.04);border:1px solid var(--line)}
     .panel,.card,.cta-box,.feature,.search-wrap{background:rgba(255,255,255,.04);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow)}
-    .hero-panel{padding:24px;display:flex;flex-direction:column;justify-content:space-between}
-    .hero-panel h3{margin:0 0 12px;font-size:1.15rem}
-    .hero-list{list-style:none;margin:0;padding:0}
-    .hero-list li{padding:12px 0;border-bottom:1px solid var(--line);color:rgba(255,255,255,.8)} .hero-list li:last-child{border-bottom:none}
+    .hero-panel{padding:24px;display:flex;flex-direction:column;justify-content:space-between}.hero-panel h3{margin:0 0 12px;font-size:1.15rem}.hero-list{list-style:none;margin:0;padding:0}.hero-list li{padding:12px 0;border-bottom:1px solid var(--line);color:rgba(255,255,255,.8)} .hero-list li:last-child{border-bottom:none}
     .hero-note{margin-top:18px;padding:16px;border-radius:18px;background:rgba(0,163,255,.08);border:1px solid rgba(0,163,255,.14);color:#d7f2ff;font-size:.95rem}
-    section{padding:30px 0 64px}.section-head{margin-bottom:22px}
-    .section-head h2{margin:0 0 10px;font-size:2rem;letter-spacing:-.5px}
-    .section-head p{margin:0;color:rgba(255,255,255,.74);max-width:820px}
-    .grid-3,.grid-2{display:grid;gap:18px}.grid-3{grid-template-columns:repeat(3,1fr)}.grid-2{grid-template-columns:repeat(2,1fr)}
-    .card{padding:24px}.card h3{margin:0 0 10px;font-size:1.08rem}.card p{margin:0;color:rgba(255,255,255,.74)}
-    .highlight{color:#92ddff;font-weight:700}.search-wrap{padding:18px;margin-bottom:18px}
-    .filters{display:flex;gap:12px;flex-wrap:wrap;align-items:center}
+    section{padding:30px 0 64px}.section-head{margin-bottom:22px}.section-head h2{margin:0 0 10px;font-size:2rem;letter-spacing:-.5px}.section-head p{margin:0;color:rgba(255,255,255,.74);max-width:820px}
+    .grid-3,.grid-2{display:grid;gap:18px}.grid-3{grid-template-columns:repeat(3,1fr)}.grid-2{grid-template-columns:repeat(2,1fr)}.card{padding:24px}.card h3{margin:0 0 10px;font-size:1.08rem}.card p{margin:0;color:rgba(255,255,255,.74)}
+    .highlight{color:#92ddff;font-weight:700}.search-wrap{padding:18px;margin-bottom:18px}.filters{display:flex;gap:12px;flex-wrap:wrap;align-items:center}
     .search-input,.select{background:var(--card-2);border:1px solid var(--line);color:var(--text);padding:12px 14px;border-radius:14px;outline:none;min-width:220px;flex:1 1 240px}
-    .pill-row{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px}
-    .pill-btn{border:1px solid var(--line);background:rgba(255,255,255,.03);color:var(--text);padding:9px 12px;border-radius:999px;cursor:pointer;font-weight:700;font-size:.92rem}
-    .pill-btn.active{background:var(--brand-soft);border-color:rgba(0,163,255,.28);color:#9ce0ff}
-    .catalog-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
-    .product-card{overflow:hidden;display:flex;flex-direction:column;background:rgba(255,255,255,.04);border:1px solid var(--line);border-radius:24px;box-shadow:var(--shadow);min-height:100%}
-    .product-image-wrap{position:relative;aspect-ratio:1 /.76;background:#0f1620;overflow:hidden;border-bottom:1px solid var(--line)}
-    .product-image{width:100%;height:100%;object-fit:cover;background:#0f1620}
+    .pill-row{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px}.pill-btn{border:1px solid var(--line);background:rgba(255,255,255,.03);color:var(--text);padding:9px 12px;border-radius:999px;cursor:pointer;font-weight:700;font-size:.92rem}.pill-btn.active{background:var(--brand-soft);border-color:rgba(0,163,255,.28);color:#9ce0ff}
+    .catalog-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.product-card{overflow:hidden;display:flex;flex-direction:column;background:rgba(255,255,255,.04);border:1px solid var(--line);border-radius:24px;box-shadow:var(--shadow);min-height:100%}
+    .product-image-wrap{position:relative;aspect-ratio:1 /.76;background:#0f1620;overflow:hidden;border-bottom:1px solid var(--line)}.product-image{width:100%;height:100%;object-fit:cover;background:#0f1620}
     .badge,.availability{position:absolute;top:12px;padding:7px 10px;border-radius:999px;font-size:.82rem;font-weight:700;backdrop-filter:blur(8px)}
-    .badge{left:12px;background:rgba(8,16,24,.75);color:#dff6ff;border:1px solid rgba(255,255,255,.12)}
-    .availability{right:12px;background:rgba(15,24,32,.86);border:1px solid rgba(255,255,255,.12);color:var(--success)}
-    .product-body{padding:18px;display:flex;flex-direction:column;gap:10px;flex:1}
-    .product-title{margin:0;font-size:1.12rem}.product-desc{margin:0;color:var(--muted);font-size:.96rem;min-height:58px}
-    .product-meta{display:flex;flex-wrap:wrap;gap:8px;font-size:.88rem;color:var(--muted)}
-    .meta-tag{padding:7px 10px;border-radius:999px;background:rgba(255,255,255,.04);border:1px solid var(--line)}
-    .product-price-row{display:flex;justify-content:space-between;align-items:flex-end;gap:12px;margin-top:auto;padding-top:8px}
-    .price-wrap{display:flex;flex-direction:column;gap:2px}.price-label{color:var(--muted-2);font-size:.82rem}.price{font-size:1.4rem;font-weight:800;letter-spacing:-.5px}
-    .product-actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:12px}
-    .how-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
-    .feature{padding:20px}.feature-step{display:inline-flex;align-items:center;justify-content:center;width:34px;height:34px;border-radius:50%;background:var(--brand-soft);color:#8fdbff;font-weight:800;margin-bottom:12px;border:1px solid rgba(0,163,255,.16)}
-    .feature h3{margin:0 0 8px;font-size:1rem}.feature p{margin:0;color:var(--muted);font-size:.94rem}
-    .cta-box{padding:34px;text-align:center;background:linear-gradient(180deg, rgba(0,163,255,.14), rgba(255,255,255,.03))}
-    .cta-box h2{margin:0 0 12px;font-size:2rem}.cta-box p{margin:0 auto 22px;max-width:760px;color:rgba(255,255,255,.76)}
-    .social-row{display:flex;flex-wrap:wrap;justify-content:center;gap:12px;margin-bottom:14px}.footer-note{color:rgba(255,255,255,.64);font-size:.95rem}
-    .edit-box{padding:20px;background:rgba(255,255,255,.03);border:1px dashed rgba(255,255,255,.14);border-radius:20px;color:var(--muted);font-size:.95rem}
-    .edit-box strong{color:var(--text)} footer{padding:20px 0 42px;color:rgba(255,255,255,.56);font-size:.9rem}
-    .empty-state{display:none;padding:28px;text-align:center;color:var(--muted);border:1px dashed rgba(255,255,255,.14);border-radius:22px;background:rgba(255,255,255,.02)}
+    .badge{left:12px;background:rgba(8,16,24,.75);color:#dff6ff;border:1px solid rgba(255,255,255,.12)}.availability{right:12px;background:rgba(15,24,32,.86);border:1px solid rgba(255,255,255,.12);color:var(--success)}
+    .product-body{padding:18px;display:flex;flex-direction:column;gap:10px;flex:1}.product-title{margin:0;font-size:1.12rem}.product-desc{margin:0;color:var(--muted);font-size:.96rem;min-height:58px}
+    .product-meta{display:flex;flex-wrap:wrap;gap:8px;font-size:.88rem;color:var(--muted)}.meta-tag{padding:7px 10px;border-radius:999px;background:rgba(255,255,255,.04);border:1px solid var(--line)}
+    .product-price-row{display:flex;justify-content:space-between;align-items:flex-end;gap:12px;margin-top:auto;padding-top:8px}.price-wrap{display:flex;flex-direction:column;gap:2px}.price-label{color:var(--muted-2);font-size:.82rem}.price{font-size:1.4rem;font-weight:800;letter-spacing:-.5px}
+    .product-actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:12px}.how-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}.feature{padding:20px}.feature-step{display:inline-flex;align-items:center;justify-content:center;width:34px;height:34px;border-radius:50%;background:var(--brand-soft);color:#8fdbff;font-weight:800;margin-bottom:12px;border:1px solid rgba(0,163,255,.16)}
+    .feature h3{margin:0 0 8px;font-size:1rem}.feature p{margin:0;color:var(--muted);font-size:.94rem}.cta-box{padding:34px;text-align:center;background:linear-gradient(180deg, rgba(0,163,255,.14), rgba(255,255,255,.03))}
+    .cta-box h2{margin:0 0 12px;font-size:2rem}.cta-box p{margin:0 auto 22px;max-width:760px;color:rgba(255,255,255,.76)}.social-row{display:flex;flex-wrap:wrap;justify-content:center;gap:12px;margin-bottom:14px}.footer-note{color:rgba(255,255,255,.64);font-size:.95rem}
+    footer{padding:20px 0 42px;color:rgba(255,255,255,.56);font-size:.9rem}.empty-state{display:none;padding:28px;text-align:center;color:var(--muted);border:1px dashed rgba(255,255,255,.14);border-radius:22px;background:rgba(255,255,255,.02)}
     @media (max-width:1080px){.catalog-grid{grid-template-columns:repeat(2,1fr)}.grid-3{grid-template-columns:repeat(2,1fr)}.how-grid{grid-template-columns:repeat(2,1fr)}}
     @media (max-width:900px){.hero-grid,.grid-2,.grid-3{grid-template-columns:1fr}.nav-links a:not(.nav-cta){display:none}.hero{padding-top:62px}h1{line-height:1}.catalog-grid{grid-template-columns:1fr}}
   </style>
@@ -89,17 +52,17 @@
     <section class="hero"><div class="container hero-grid"><div>
       <div class="eyebrow">Premium catalog + mobile bike service in Nijmegen</div>
       <h1>Shop bike products <span class="accent">and book service fast</span>.</h1>
-      <p class="lead">NICAFIETS helps you buy useful bike products and book practical service without wasting time. Browse the catalog, pay with a Mollie payment link, or order directly through WhatsApp.</p>
+      <p class="lead">NICAFIETS helps you buy useful bike products and book practical service without wasting time. Browse the catalog, order through WhatsApp, or pay through a Mollie payment link.</p>
       <div class="button-row"><a class="btn btn-primary" href="#catalog">View catalog</a><a class="btn btn-whatsapp" href="https://wa.me/31643270969?text=Hello%20NICAFIETS,%20I%20want%20help%20with%20a%20product%20or%20service." target="_blank" rel="noopener noreferrer">Ask on WhatsApp</a></div>
       <div class="micro-proof"><span>Products + services</span><span>WhatsApp orders</span><span>Mollie payment links</span><span>Easy to edit later</span></div>
     </div>
-    <div class="panel hero-panel"><div><h3>What this website can do</h3>
-      <ul class="hero-list"><li>Show products with images, prices and descriptions</li><li>Let customers order through WhatsApp</li><li>Let customers pay through a Mollie payment link</li><li>Help you edit products later without rebuilding the whole site</li></ul>
-    </div><div class="hero-note">This catalog is built so you can later change products, photos, prices, descriptions and payment links from one simple product list in the code.</div></div>
+    <div class="panel hero-panel"><div><h3>What this website does</h3>
+      <ul class="hero-list"><li>Shows products with images, prices and short descriptions</li><li>Lets customers order directly through WhatsApp</li><li>Lets customers pay through a Mollie payment link</li><li>Keeps the buying process simple and fast</li></ul>
+    </div><div class="hero-note">Perfect for a practical webshop without paying monthly platform costs right now.</div></div>
     </div></section>
 
     <section id="catalog"><div class="container">
-      <div class="section-head"><h2>Catalog</h2><p>Browse featured products and services. Every product can have its own WhatsApp order button and its own Mollie payment link.</p></div>
+      <div class="section-head"><h2>Catalog</h2><p>Browse featured products and services. Each item can have its own WhatsApp order button and its own Mollie payment link.</p></div>
       <div class="search-wrap">
         <div class="filters"><input id="searchInput" class="search-input" type="text" placeholder="Search product, category or keyword..." />
           <select id="sortSelect" class="select">
@@ -111,28 +74,22 @@
     </div></section>
 
     <section id="services"><div class="container">
-      <div class="section-head"><h2>Why this catalog works for NICAFIETS</h2><p>This setup keeps things practical: you can sell products, offer service, and keep full control while customers choose the easiest path for them.</p></div>
+      <div class="section-head"><h2>Why order with NICAFIETS</h2><p>This setup keeps things practical: you can sell products, offer service, and keep full control while customers choose the easiest path for them.</p></div>
       <div class="grid-3">
         <div class="card"><h3>Direct buying path</h3><p>Customers can go from product view to <span class="highlight">WhatsApp message</span> or directly to a <span class="highlight">Mollie payment link</span>.</p></div>
         <div class="card"><h3>Better product presentation</h3><p>Each product can show an image, short description, price, tags, installation note and availability.</p></div>
-        <div class="card"><h3>Easy updates later</h3><p>You only edit one products list in the code instead of redesigning the whole page every time.</p></div>
+        <div class="card"><h3>Easy updates later</h3><p>You only edit the product list in the code instead of redesigning the whole page every time.</p></div>
       </div>
     </div></section>
 
     <section id="how"><div class="container">
-      <div class="section-head"><h2>How customers order</h2><p>Keep it simple: product first, then WhatsApp or direct payment, then delivery, installation or service confirmation.</p></div>
+      <div class="section-head"><h2>How to order</h2><p>Keep it simple: product first, then WhatsApp or direct payment, then delivery, installation or service confirmation.</p></div>
       <div class="how-grid">
-        <div class="feature"><div class="feature-step">1</div><h3>Choose product</h3><p>Customer opens the catalog and views the product details, price and image.</p></div>
-        <div class="feature"><div class="feature-step">2</div><h3>Message or pay</h3><p>Customer clicks WhatsApp to ask first, or clicks the payment button to pay directly.</p></div>
-        <div class="feature"><div class="feature-step">3</div><h3>Confirm details</h3><p>You confirm stock, delivery, installation or appointment details through WhatsApp.</p></div>
-        <div class="feature"><div class="feature-step">4</div><h3>Complete order</h3><p>You deliver, install or perform the service and keep the sale professional and simple.</p></div>
+        <div class="feature"><div class="feature-step">1</div><h3>Choose product</h3><p>Open the catalog and view the product details, price and image.</p></div>
+        <div class="feature"><div class="feature-step">2</div><h3>Message or pay</h3><p>Click WhatsApp to ask first, or click the payment button to pay directly.</p></div>
+        <div class="feature"><div class="feature-step">3</div><h3>Confirm details</h3><p>NICAFIETS confirms stock, delivery, installation or appointment details.</p></div>
+        <div class="feature"><div class="feature-step">4</div><h3>Complete order</h3><p>Receive the product, installation or service in a simple professional way.</p></div>
       </div>
-    </div></section>
-
-    <section id="edit-guide"><div class="container">
-      <div class="section-head"><h2>How you edit this later</h2><p>You do not need to rewrite the full website. You only edit the product list near the bottom of the file.</p></div>
-      <div class="edit-box"><strong>What you will edit later:</strong><br><br>
-      1. <strong>name</strong> = product name<br>2. <strong>price</strong> = shown price<br>3. <strong>description</strong> = short sales text<br>4. <strong>image</strong> = image path like <strong>images/product-name.jpg</strong><br>5. <strong>category</strong> = Crates, Tires, Lights, Services, etc.<br>6. <strong>whatsappText</strong> = ready-made message when user clicks WhatsApp<br>7. <strong>mollie</strong> = your Mollie payment link for that product<br><br>If a product has no Mollie link yet, the site will hide the payment button and only show WhatsApp.</div>
     </div></section>
 
     <section id="contact"><div class="container"><div class="cta-box">
