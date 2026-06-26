@@ -128,35 +128,687 @@ Order easily through WhatsApp and pay securely with iDEAL and other trusted paym
 </footer>
 
   <script>
-    const PRODUCTS = [  
-      {id:1,name:"Cortina Crate Dubai",category:"Crates",price:"Price on request",description:"Practical everyday crate for city bikes with a clean and useful design.",subtext:"Available in different sizes, styles and colours. More options available on request.",image:"images/cortinakratten.jpg",tags:["Daily use","Popular","Front crate"],availability:"Available",installNote:"Installation available",whatsappText:"Hello NICAFIETS, I want to order the Cortina Crate Dubai.",mollie:"PASTE-YOUR-MOLLIE-LINK-HERE",featured:true},
+  const WHATSAPP_NUMBER = "31643270969";
 
-{id:2,name:"Front Light ",category:"Lights",price:"Price on request",description:"Front light options available on request for better visibility, safety and daily riding.",subtext:"We can order different models, mounting styles, light strengths, brands and price ranges depending on your bike and use.",image:"images/front-light-NF.jpg",tags:["Safety","Daily riding","Easy upgrade"],availability:"Available",installNote:"Installation optional",whatsappText:"Hello NICAFIETS, I want to order the Front Light.",mollie:"PASTE-YOUR-MOLLIE-LINK-HERE",featured:true},
+  const PRODUCTS = [
+    {
+      id: 1,
+      name: "Cortina Crate Dubai",
+      category: "Crates",
+      price: "From €19.99",
+      sortPrice: 19.99,
+      shortDescription: "Practical front crate for everyday city bike use.",
+      fullDescription: "A clean and practical front crate for carrying bags, groceries or daily items. Installation and mounting options are available depending on your bike.",
+      image: "images/cortinakratten.jpg",
+      tags: ["Daily use", "Front crate", "Installation available"],
+      availability: "Available",
+      included: [
+        "Product advice before ordering",
+        "WhatsApp support",
+        "Installation option in Nijmegen"
+      ],
+      extras: [
+        "Mounting parts if needed",
+        "MIK adapter if required",
+        "Travel cost outside Nijmegen"
+      ],
+      whatsappText: "Hello NICAFIETS, I want to order the Cortina Crate Dubai. Can you confirm the price and installation options?",
+      mollie: "",
+      featured: true
+    },
 
-{id:3,name:"Strong Chain Lock",category:"Locks",price:"Price on request",description:"Premium bike lock options available on request, selected for daily use, security and durability.",
-subtext:"We can order different sizes, security levels, brands and price ranges depending on your bike, location and personal needs.",image:"images/Abus120.jpg",tags:["Security","Useful","City"],availability:"Available",installNote:"Ready to use",whatsappText:"Hello NICAFIETS, I want to order the Strong Chain Lock.",mollie:"PASTE-YOUR-MOLLIE-LINK-HERE",featured:true},
+    {
+      id: 2,
+      name: "Front Light",
+      category: "Lights",
+      price: "From €6.99",
+      sortPrice: 6.99,
+      shortDescription: "Front light options for better visibility and safer daily riding.",
+      fullDescription: "Front light options available for city bikes, student bikes and daily use. NICAFIETS can help you choose the right model depending on your bike, budget and mounting type.",
+      image: "images/front-light-NF.jpg",
+      tags: ["Safety", "Daily riding", "Easy upgrade"],
+      availability: "Available",
+      included: [
+        "Product advice",
+        "Different models available",
+        "Installation optional"
+      ],
+      extras: [
+        "Installation service",
+        "Higher quality light option",
+        "Mounting parts if needed"
+      ],
+      whatsappText: "Hello NICAFIETS, I want to order a front light. Can you help me choose the right option?",
+      mollie: "",
+      featured: true
+    },
 
-{id:4,name:"Inner Tube Replacement",category:"Tires & Inner Tubes",price:"Price on request",description:"Quick inner tube replacement for a practical and reliable solution.",subtext:"Available for different wheel sizes and valve types. Other options available on request.",image:"images/Schwalbe-DV17.jpg",tags:["Fast fix","Common repair","Useful"],availability:"On request",installNote:"Service at your location",whatsappText:"Hello NICAFIETS, I need an Inner Tube Replacement.",mollie:"PASTE-YOUR-MOLLIE-LINK-HERE",featured:true},
+    {
+      id: 3,
+      name: "Strong Chain Lock",
+      category: "Locks",
+      price: "From €14.99",
+      sortPrice: 14.99,
+      shortDescription: "Strong chain lock options for daily city bike security.",
+      fullDescription: "Bike lock options selected for daily use in the city. Available in different sizes, security levels and price ranges depending on your bike and parking situation.",
+      image: "images/Abus120.jpg",
+      tags: ["Security", "City", "Ready to use"],
+      availability: "Available",
+      included: [
+        "Product advice",
+        "Different security levels available",
+        "Ready to use"
+      ],
+      extras: [
+        "Premium lock option",
+        "Extra chain length",
+        "Delivery or installation support if needed"
+      ],
+      whatsappText: "Hello NICAFIETS, I want to order a strong bike lock. Can you send me the available options?",
+      mollie: "",
+      featured: true
+    },
 
-{id:5,name:"Flat Tire Repair Service",category:"Services",price:"Price on request",description:"Mobile flat tire repair at your location for a simpler and more convenient solution.",subtext:"Different repair options may apply depending on tire size, condition and parts needed.",image:"images/flattire.png",tags:["Service","Mobile","Fast support"],availability:"Book now",installNote:"At your location",whatsappText:"Hello NICAFIETS, I want to book a Flat Tire Repair Service.",mollie:"PASTE-YOUR-MOLLIE-LINK-HERE",featured:true},
+    {
+      id: 4,
+      name: "Inner Tube Replacement",
+      category: "Tires & Inner Tubes",
+      price: "From €24.99",
+      sortPrice: 24.99,
+      shortDescription: "Mobile inner tube replacement for city bikes.",
+      fullDescription: "Inner tube replacement at your location. Suitable for common city bikes, student bikes and daily-use bicycles. NICAFIETS checks the tire and installs the correct inner tube when available.",
+      image: "images/Schwalbe-DV17.jpg",
+      tags: ["Fast fix", "Common repair", "Mobile service"],
+      availability: "On request",
+      included: [
+        "Service at your location",
+        "Basic tire check",
+        "Inner tube installation"
+      ],
+      extras: [
+        "New outer tire if damaged",
+        "Special inner tube size",
+        "Travel cost outside Nijmegen"
+      ],
+      whatsappText: "Hello NICAFIETS, I need an inner tube replacement. My bike location is:",
+      mollie: "",
+      featured: true
+    },
 
-{id:6,name:"Brake Adjustment Service",category:"Services",price:"Price on request",description:"Brake adjustment service for better control, comfort and safer riding.",subtext:"NICAFIETS checks and adjusts your brakes on location. If needed, we can also advise on brake pads, cables or replacement parts depending on your bike, brake type and budget.",image:"images/brake-adjustment-NF.jpeg",tags:["Safety","Service","Adjustment"],availability:"Book now",installNote:"At your location",whatsappText:"Hello NICAFIETS, I want to book a Brake Adjustment Service.",mollie:"PASTE-YOUR-MOLLIE-LINK-HERE",featured:false},
+    {
+      id: 5,
+      name: "Flat Tire Repair Service",
+      category: "Services",
+      price: "From €24.99",
+      sortPrice: 24.99,
+      shortDescription: "Mobile flat tire repair at your location.",
+      fullDescription: "A convenient mobile repair service for flat tires. NICAFIETS comes to your location, checks the tire and provides the fastest practical solution depending on the condition of the tube and tire.",
+      image: "images/flattire.png",
+      tags: ["Mobile", "Fast support", "At your location"],
+      availability: "Book now",
+      included: [
+        "Mobile service in Nijmegen",
+        "Basic tire inspection",
+        "Repair or replacement advice"
+      ],
+      extras: [
+        "New inner tube if needed",
+        "New outer tire if needed",
+        "Travel cost outside Nijmegen"
+      ],
+      whatsappText: "Hello NICAFIETS, I want to book a flat tire repair service. My location is:",
+      mollie: "",
+      featured: true
+    },
 
-{id:7,name:"City Tire 28 Inch",category:"Tires & Inner Tubes",price:"Price on request",description:"Quality city bike tire options available on request for daily commuting, comfort and reliable riding.",subtext:"We can order different sizes, tread styles, brands and price ranges depending on your bike, riding style and budget.",image:"images/city-tires8001.jpg",tags:["28 inch","City bike","Replacement"],availability:"On request",installNote:"Installation available",whatsappText:"Hello NICAFIETS, I want to order the City Tire 28 Inch.",mollie:"PASTE-YOUR-MOLLIE-LINK-HERE",featured:false},
-{id:9,name:"Fatbike Tire Service",category:"Tires & Inner Tubes",price:"Price on request",description:"Upgrade your fatbike with stronger, safer and longer-lasting tire options for daily riding.",subtext:"Cheap fatbike tires often wear faster or cause repeated problems. NICAFIETS can supply better options from brands like Schwalbe, CST, Urban Proof, Deli Tire and Delium, available in different price and quality levels. Tire only or installation service available.",image:"images/fatbike-tire-service-NF.jpeg",tags:["Fatbike","20 x 4.00","Installation"],availability:"On request",installNote:"Tire only or installed",whatsappText:"Hello NICAFIETS, I want more information about fatbike tire options and installation service.",mollie:"PASTE-YOUR-MOLLIE-LINK-HERE",featured:true},
-{id:8,name:"Rear Light",category:"Lights",price:"Price on request",description:"Simple rear light option for better visibility and safer riding.",subtext:"Available in different models and mounting styles. Other options available on request.",image:"images/rear-light-NF.jpeg",tags:["Safety","Rear light","Low cost"],availability:"Available",installNote:"Installation optional",whatsappText:"Hello NICAFIETS, I want to order the Rear Light.",mollie:"PASTE-YOUR-MOLLIE-LINK-HERE",featured:false}];
-    const WHATSAPP_NUMBER="31643270969";
-    const PLACEHOLDER="data:image/svg+xml;utf8,"+encodeURIComponent("<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 780'><defs><linearGradient id='g' x1='0' y1='0' x2='1' y2='1'><stop offset='0%' stop-color='#0f1722'/><stop offset='100%' stop-color='#16283a'/></linearGradient></defs><rect width='1200' height='780' fill='url(#g)'/><circle cx='980' cy='80' r='180' fill='rgba(0,163,255,0.10)'/><text x='50%' y='47%' text-anchor='middle' fill='#d8ecf7' font-family='Arial, Helvetica, sans-serif' font-size='54' font-weight='700'>NICAFIETS</text><text x='50%' y='56%' text-anchor='middle' fill='rgba(255,255,255,0.65)' font-family='Arial, Helvetica, sans-serif' font-size='28'>Add your product photo here</text></svg>");
-    const catalogGrid=document.getElementById("catalogGrid"),searchInput=document.getElementById("searchInput"),sortSelect=document.getElementById("sortSelect"),categoryPills=document.getElementById("categoryPills"),emptyState=document.getElementById("emptyState");
-    let activeCategory="All";
-    function euro(value){return new Intl.NumberFormat("nl-NL",{style:"currency",currency:"EUR"}).format(value)}
-    function buildWhatsAppLink(text){return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(text)}`}
-    function categoriesFromProducts(){return ["All",...new Set(PRODUCTS.map(p=>p.category))]}
-    function renderCategoryPills(){categoryPills.innerHTML="";categoriesFromProducts().forEach(category=>{const button=document.createElement("button");button.className="pill-btn"+(category===activeCategory?" active":"");button.textContent=category;button.addEventListener("click",()=>{activeCategory=category;renderCategoryPills();renderProducts()});categoryPills.appendChild(button)})}
-    function filteredProducts(){const q=searchInput.value.trim().toLowerCase();let result=PRODUCTS.filter(product=>{const matchCategory=activeCategory==="All"||product.category===activeCategory;const haystack=[product.name,product.category,product.description,product.installNote,...(product.tags||[])].join(" ").toLowerCase();return matchCategory&&haystack.includes(q)});switch(sortSelect.value){case"price-low":result.sort((a,b)=>a.price-b.price);break;case"price-high":result.sort((a,b)=>b.price-a.price);break;case"name-az":result.sort((a,b)=>a.name.localeCompare(b.name));break;default:result.sort((a,b)=>Number(b.featured)-Number(a.featured))}return result}
-    function productCard(product){const card=document.createElement("article");card.className="product-card";const hasMollie=product.mollie&&!product.mollie.includes("PASTE-YOUR-MOLLIE-LINK-HERE");card.innerHTML=`<div class="product-image-wrap"><img class="product-image" src="${product.image||PLACEHOLDER}" alt="${product.name}" onerror="this.onerror=null;this.src='${PLACEHOLDER}'" /><div class="badge">${product.category}</div><div class="availability">${product.availability||"Available"}</div></div><div class="product-body"><h3 class="product-title">${product.name}</h3><p class="product-desc">${product.description}</p><div class="product-meta">${(product.tags||[]).map(tag=>`<span class="meta-tag">${tag}</span>`).join("")}${product.installNote?`<span class="meta-tag">${product.installNote}</span>`:""}</div><div class="product-price-row"><div class="price-wrap"><span class="price-label">Price</span><span class="price">${typeof product.price==='number'?euro(product.price):product.price}</span></div></div><div class="product-actions"><a class="btn btn-small btn-whatsapp" href="${buildWhatsAppLink(product.whatsappText||`Hello NICAFIETS, I want to order ${product.name}.`)}" target="_blank" rel="noopener noreferrer">Order on WhatsApp</a>${hasMollie?`<a class="btn btn-small btn-pay" href="${product.mollie}" target="_blank" rel="noopener noreferrer">Pay now</a>`:""}</div></div>`;return card}
-    function renderProducts(){const products=filteredProducts();catalogGrid.innerHTML="";emptyState.style.display=products.length?"none":"block";products.forEach(product=>catalogGrid.appendChild(productCard(product)))}
-    searchInput.addEventListener("input",renderProducts);sortSelect.addEventListener("change",renderProducts);renderCategoryPills();renderProducts();
-  </script>
+    {
+      id: 6,
+      name: "Brake Adjustment Service",
+      category: "Services",
+      price: "From €19.99",
+      sortPrice: 19.99,
+      shortDescription: "Brake adjustment for better control and safer riding.",
+      fullDescription: "NICAFIETS checks and adjusts your brakes at your location. If parts are worn or damaged, you receive clear advice before anything extra is done.",
+      image: "images/brake-adjustment-NF.jpeg",
+      tags: ["Safety", "Adjustment", "Mobile service"],
+      availability: "Book now",
+      included: [
+        "Brake inspection",
+        "Brake adjustment",
+        "Basic safety check"
+      ],
+      extras: [
+        "Brake pads if needed",
+        "Brake cable if needed",
+        "Hydraulic brake bleeding if needed"
+      ],
+      whatsappText: "Hello NICAFIETS, I want to book a brake adjustment service. My location is:",
+      mollie: "",
+      featured: true
+    },
+
+    {
+      id: 7,
+      name: "City Tire 28 Inch",
+      category: "Tires & Inner Tubes",
+      price: "From €24.99",
+      sortPrice: 24.99,
+      shortDescription: "City bike tire options for daily commuting.",
+      fullDescription: "Quality 28 inch city bike tires available on request. NICAFIETS can help you choose a suitable tire depending on your bike, riding style and budget.",
+      image: "images/city-tires8001.jpg",
+      tags: ["28 inch", "City bike", "Replacement"],
+      availability: "On request",
+      included: [
+        "Product advice",
+        "Different tire options",
+        "Installation available"
+      ],
+      extras: [
+        "Inner tube if needed",
+        "Installation service",
+        "Travel cost outside Nijmegen"
+      ],
+      whatsappText: "Hello NICAFIETS, I want to order a 28 inch city bike tire. Can you confirm the options?",
+      mollie: "",
+      featured: false
+    },
+
+    {
+      id: 8,
+      name: "Rear Light",
+      category: "Lights",
+      price: "From €4.99",
+      sortPrice: 4.99,
+      shortDescription: "Rear light options for better visibility and safety.",
+      fullDescription: "Simple rear light options for daily riding. Available in different models and mounting styles depending on your bike.",
+      image: "images/rear-light-NF.jpeg",
+      tags: ["Safety", "Rear light", "Low cost"],
+      availability: "Available",
+      included: [
+        "Product advice",
+        "Different models available",
+        "Installation optional"
+      ],
+      extras: [
+        "Installation service",
+        "Higher quality light option",
+        "Mounting parts if needed"
+      ],
+      whatsappText: "Hello NICAFIETS, I want to order a rear light. Can you send me the available options?",
+      mollie: "",
+      featured: false
+    },
+
+    {
+      id: 9,
+      name: "Fatbike Tire Service",
+      category: "Fatbike",
+      price: "From €49.99 installed",
+      sortPrice: 49.99,
+      shortDescription: "Fatbike tire replacement or upgrade for daily riding.",
+      fullDescription: "Fatbike tire service for 20 x 4.00 tires. NICAFIETS can supply better options from brands such as Schwalbe, CST, Urban Proof, Deli Tire and Delium, depending on availability, quality level and budget.",
+      image: "images/fatbike-tire-service-NF.jpeg",
+      tags: ["Fatbike", "20 x 4.00", "Installation"],
+      availability: "On request",
+      included: [
+        "Fatbike tire advice",
+        "Tire only or installed option",
+        "Service at your location"
+      ],
+      extras: [
+        "New fatbike tire",
+        "New inner tube",
+        "Travel cost outside Nijmegen"
+      ],
+      whatsappText: "Hello NICAFIETS, I want more information about fatbike tire options and installation service. My location is:",
+      mollie: "",
+      featured: true
+    }
+  ];
+
+  const PLACEHOLDER =
+    "data:image/svg+xml;utf8," +
+    encodeURIComponent(
+      "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 780'><defs><linearGradient id='g' x1='0' y1='0' x2='1' y2='1'><stop offset='0%' stop-color='#0f1722'/><stop offset='100%' stop-color='#16283a'/></linearGradient></defs><rect width='1200' height='780' fill='url(#g)'/><circle cx='980' cy='80' r='180' fill='rgba(0,163,255,0.10)'/><text x='50%' y='47%' text-anchor='middle' fill='#d8ecf7' font-family='Arial, Helvetica, sans-serif' font-size='54' font-weight='700'>NICAFIETS</text><text x='50%' y='56%' text-anchor='middle' fill='rgba(255,255,255,0.65)' font-family='Arial, Helvetica, sans-serif' font-size='28'>Product photo</text></svg>"
+    );
+
+  const catalogGrid = document.getElementById("catalogGrid");
+  const searchInput = document.getElementById("searchInput");
+  const sortSelect = document.getElementById("sortSelect");
+  const categoryPills = document.getElementById("categoryPills");
+  const emptyState = document.getElementById("emptyState");
+
+  let activeCategory = "All";
+
+  function addWebshopStyles() {
+    const style = document.createElement("style");
+    style.innerHTML = `
+      .details-btn {
+        background: rgba(255,255,255,.04);
+        color: #f5f7fa;
+        border: 1px solid rgba(255,255,255,.14);
+      }
+
+      .product-desc {
+        min-height: 48px;
+      }
+
+      .shop-trust-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin-top: 10px;
+        color: rgba(255,255,255,.66);
+        font-size: .86rem;
+      }
+
+      .shop-trust-row span {
+        padding: 6px 9px;
+        border-radius: 999px;
+        background: rgba(0,163,255,.08);
+        border: 1px solid rgba(0,163,255,.14);
+      }
+
+      .product-modal {
+        position: fixed;
+        inset: 0;
+        z-index: 9999;
+        display: none;
+        align-items: center;
+        justify-content: center;
+        padding: 18px;
+        background: rgba(0,0,0,.72);
+        backdrop-filter: blur(10px);
+      }
+
+      .product-modal.active {
+        display: flex;
+      }
+
+      .product-modal-box {
+        width: min(980px, 96vw);
+        max-height: 90vh;
+        overflow: auto;
+        background: #0b0f14;
+        border: 1px solid rgba(255,255,255,.12);
+        border-radius: 26px;
+        box-shadow: 0 24px 80px rgba(0,0,0,.48);
+      }
+
+      .product-modal-inner {
+        display: grid;
+        grid-template-columns: .95fr 1.05fr;
+        gap: 0;
+      }
+
+      .product-modal-image {
+        min-height: 100%;
+        background: #0f1620;
+      }
+
+      .product-modal-image img {
+        width: 100%;
+        height: 100%;
+        min-height: 420px;
+        object-fit: cover;
+      }
+
+      .product-modal-content {
+        padding: 28px;
+      }
+
+      .modal-top {
+        display: flex;
+        justify-content: space-between;
+        gap: 14px;
+        align-items: flex-start;
+        margin-bottom: 12px;
+      }
+
+      .modal-close {
+        border: 1px solid rgba(255,255,255,.14);
+        background: rgba(255,255,255,.05);
+        color: #fff;
+        width: 38px;
+        height: 38px;
+        border-radius: 50%;
+        font-size: 24px;
+        line-height: 1;
+        cursor: pointer;
+      }
+
+      .modal-category {
+        display: inline-block;
+        margin-bottom: 10px;
+        padding: 7px 10px;
+        border-radius: 999px;
+        color: #9ce0ff;
+        background: rgba(0,163,255,.10);
+        border: 1px solid rgba(0,163,255,.18);
+        font-size: .86rem;
+        font-weight: 700;
+      }
+
+      .product-modal h2 {
+        margin: 0 0 10px;
+        font-size: clamp(1.8rem, 4vw, 2.8rem);
+        line-height: 1;
+      }
+
+      .modal-description {
+        color: rgba(255,255,255,.76);
+        margin-bottom: 18px;
+      }
+
+      .modal-price-box {
+        display: flex;
+        justify-content: space-between;
+        gap: 16px;
+        align-items: center;
+        padding: 16px;
+        border-radius: 18px;
+        background: rgba(0,163,255,.08);
+        border: 1px solid rgba(0,163,255,.16);
+        margin: 18px 0;
+      }
+
+      .modal-price-box span {
+        color: rgba(255,255,255,.62);
+        font-size: .9rem;
+      }
+
+      .modal-price-box strong {
+        font-size: 1.6rem;
+        color: #fff;
+      }
+
+      .modal-section {
+        margin-top: 20px;
+      }
+
+      .modal-section h4 {
+        margin: 0 0 10px;
+        color: #fff;
+      }
+
+      .modal-section ul {
+        margin: 0;
+        padding-left: 20px;
+        color: rgba(255,255,255,.74);
+      }
+
+      .modal-section li {
+        margin: 7px 0;
+      }
+
+      .modal-actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-top: 24px;
+      }
+
+      .modal-note {
+        margin-top: 16px;
+        color: rgba(255,255,255,.58);
+        font-size: .92rem;
+      }
+
+      @media (max-width: 820px) {
+        .product-modal-inner {
+          grid-template-columns: 1fr;
+        }
+
+        .product-modal-image img {
+          min-height: 260px;
+          max-height: 320px;
+        }
+
+        .product-modal-content {
+          padding: 22px;
+        }
+      }
+    `;
+    document.head.appendChild(style);
+  }
+
+  function createModal() {
+    const modal = document.createElement("div");
+    modal.id = "productModal";
+    modal.className = "product-modal";
+    modal.innerHTML = `<div class="product-modal-box" id="productModalBox"></div>`;
+    document.body.appendChild(modal);
+
+    modal.addEventListener("click", function(event) {
+      if (event.target.id === "productModal") {
+        closeProductModal();
+      }
+    });
+  }
+
+  function buildWhatsAppLink(text) {
+    return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(text)}`;
+  }
+
+  function hasMollieLink(product) {
+    return product.mollie && product.mollie.trim() !== "" && !product.mollie.includes("PASTE");
+  }
+
+  function categoriesFromProducts() {
+    return ["All", ...new Set(PRODUCTS.map(product => product.category))];
+  }
+
+  function renderCategoryPills() {
+    categoryPills.innerHTML = "";
+
+    categoriesFromProducts().forEach(category => {
+      const button = document.createElement("button");
+      button.className = "pill-btn" + (category === activeCategory ? " active" : "");
+      button.textContent = category;
+
+      button.addEventListener("click", () => {
+        activeCategory = category;
+        renderCategoryPills();
+        renderProducts();
+      });
+
+      categoryPills.appendChild(button);
+    });
+  }
+
+  function filteredProducts() {
+    const query = searchInput.value.trim().toLowerCase();
+
+    let result = PRODUCTS.filter(product => {
+      const matchCategory = activeCategory === "All" || product.category === activeCategory;
+
+      const haystack = [
+        product.name,
+        product.category,
+        product.shortDescription,
+        product.fullDescription,
+        ...(product.tags || [])
+      ].join(" ").toLowerCase();
+
+      return matchCategory && haystack.includes(query);
+    });
+
+    switch (sortSelect.value) {
+      case "price-low":
+        result.sort((a, b) => a.sortPrice - b.sortPrice);
+        break;
+      case "price-high":
+        result.sort((a, b) => b.sortPrice - a.sortPrice);
+        break;
+      case "name-az":
+        result.sort((a, b) => a.name.localeCompare(b.name));
+        break;
+      default:
+        result.sort((a, b) => Number(b.featured) - Number(a.featured));
+    }
+
+    return result;
+  }
+
+  function productCard(product) {
+    const card = document.createElement("article");
+    card.className = "product-card";
+
+    const paymentButton = hasMollieLink(product)
+      ? `<a class="btn btn-small btn-pay" href="${product.mollie}" target="_blank" rel="noopener noreferrer">Pay with iDEAL</a>`
+      : "";
+
+    card.innerHTML = `
+      <div class="product-image-wrap">
+        <img 
+          class="product-image" 
+          src="${product.image || PLACEHOLDER}" 
+          alt="${product.name}" 
+          onerror="this.onerror=null;this.src='${PLACEHOLDER}'"
+        />
+        <div class="badge">${product.category}</div>
+        <div class="availability">${product.availability}</div>
+      </div>
+
+      <div class="product-body">
+        <h3 class="product-title">${product.name}</h3>
+        <p class="product-desc">${product.shortDescription}</p>
+
+        <div class="product-meta">
+          ${(product.tags || []).map(tag => `<span class="meta-tag">${tag}</span>`).join("")}
+        </div>
+
+        <div class="shop-trust-row">
+          <span>Secure payment</span>
+          <span>WhatsApp support</span>
+        </div>
+
+        <div class="product-price-row">
+          <div class="price-wrap">
+            <span class="price-label">Price</span>
+            <span class="price">${product.price}</span>
+          </div>
+        </div>
+
+        <div class="product-actions">
+          <button class="btn btn-small details-btn" onclick="openProductModal(${product.id})">
+            View details
+          </button>
+
+          <a 
+            class="btn btn-small btn-whatsapp" 
+            href="${buildWhatsAppLink(product.whatsappText)}" 
+            target="_blank" 
+            rel="noopener noreferrer"
+          >
+            Order on WhatsApp
+          </a>
+
+          ${paymentButton}
+        </div>
+      </div>
+    `;
+
+    return card;
+  }
+
+  function renderProducts() {
+    const products = filteredProducts();
+
+    catalogGrid.innerHTML = "";
+    emptyState.style.display = products.length ? "none" : "block";
+
+    products.forEach(product => {
+      catalogGrid.appendChild(productCard(product));
+    });
+  }
+
+  function openProductModal(productId) {
+    const product = PRODUCTS.find(item => item.id === productId);
+    const modal = document.getElementById("productModal");
+    const modalBox = document.getElementById("productModalBox");
+
+    const paymentButton = hasMollieLink(product)
+      ? `<a class="btn btn-pay" href="${product.mollie}" target="_blank" rel="noopener noreferrer">Pay with iDEAL</a>`
+      : `<a class="btn btn-secondary" href="${buildWhatsAppLink(product.whatsappText)}" target="_blank" rel="noopener noreferrer">Ask before payment</a>`;
+
+    modalBox.innerHTML = `
+      <div class="product-modal-inner">
+        <div class="product-modal-image">
+          <img 
+            src="${product.image || PLACEHOLDER}" 
+            alt="${product.name}" 
+            onerror="this.onerror=null;this.src='${PLACEHOLDER}'"
+          />
+        </div>
+
+        <div class="product-modal-content">
+          <div class="modal-top">
+            <div>
+              <span class="modal-category">${product.category}</span>
+              <h2>${product.name}</h2>
+            </div>
+            <button class="modal-close" onclick="closeProductModal()">×</button>
+          </div>
+
+          <p class="modal-description">${product.fullDescription}</p>
+
+          <div class="modal-price-box">
+            <span>Starting price</span>
+            <strong>${product.price}</strong>
+          </div>
+
+          <div class="modal-section">
+            <h4>Included</h4>
+            <ul>
+              ${product.included.map(item => `<li>${item}</li>`).join("")}
+            </ul>
+          </div>
+
+          <div class="modal-section">
+            <h4>Possible extra costs</h4>
+            <ul>
+              ${product.extras.map(item => `<li>${item}</li>`).join("")}
+            </ul>
+          </div>
+
+          <div class="product-meta modal-section">
+            ${(product.tags || []).map(tag => `<span class="meta-tag">${tag}</span>`).join("")}
+          </div>
+
+          <div class="modal-actions">
+            <a 
+              class="btn btn-whatsapp" 
+              href="${buildWhatsAppLink(product.whatsappText)}" 
+              target="_blank" 
+              rel="noopener noreferrer"
+            >
+              Order on WhatsApp
+            </a>
+
+            ${paymentButton}
+          </div>
+
+          <p class="modal-note">
+            Final price can depend on bike type, part size, stock, installation and service location.
+          </p>
+        </div>
+      </div>
+    `;
+
+    modal.classList.add("active");
+  }
+
+  function closeProductModal() {
+    document.getElementById("productModal").classList.remove("active");
+  }
+
+  addWebshopStyles();
+  createModal();
+  searchInput.addEventListener("input", renderProducts);
+  sortSelect.addEventListener("change", renderProducts);
+  renderCategoryPills();
+  renderProducts();
+</script>
 </body>
 </html>
