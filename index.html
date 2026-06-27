@@ -684,8 +684,8 @@ Order easily through WhatsApp and pay securely with iDEAL and other trusted paym
     card.className = "product-card";
 
     const paymentButton = hasMollieLink(product)
-      ? `<a class="btn btn-small btn-pay" href="${product.mollie}" target="_blank" rel="noopener noreferrer">Pay with iDEAL</a>`
-      : "";
+  ? `<a class="btn btn-pay" href="${product.mollie}" target="_blank" rel="noopener noreferrer">Pay with iDEAL</a>`
+  : "";
 
     card.innerHTML = `
       <div class="product-image-wrap">
@@ -730,7 +730,7 @@ Order easily through WhatsApp and pay securely with iDEAL and other trusted paym
             target="_blank" 
             rel="noopener noreferrer"
           >
-            Order on WhatsApp
+            Ask / Order on WhatsApp
           </a>
 
           ${paymentButton}
