@@ -767,7 +767,7 @@ Order easily through WhatsApp and pay securely with iDEAL and other trusted paym
 
     const paymentButton = hasMollieLink(product)
       ? `<a class="btn btn-pay" href="${product.mollie}" target="_blank" rel="noopener noreferrer">Pay with iDEAL</a>`
-      : `<a class="btn btn-secondary" href="${buildWhatsAppLink(product.whatsappText)}" target="_blank" rel="noopener noreferrer">Ask before payment</a>`;
+      : `<a class="btn btn-secondary" href="${buildWhatsAppLink(product.whatsappText)}" target="_blank" rel="noopener noreferrer">Request help to order</a>`;
 
     modalBox.innerHTML = `
       <div class="product-modal-inner">
