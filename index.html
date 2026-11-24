@@ -1,851 +1,241 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="nl">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>NICAFIETS | Mobile Bike Service</title>
-  <meta name="description" content="NICAFIETS catalog: bike accessories, tires, inner tubes, locks, lights and mobile bike service in Nijmegen. Order by WhatsApp or pay through Mollie payment links." />
-  <style>
-    :root{--bg:#0b0f14;--card:#121a25;--card-2:#0f1620;--line:rgba(255,255,255,0.08);--text:#f5f7fa;--muted:rgba(255,255,255,0.72);--muted-2:rgba(255,255,255,0.56);--brand:#00a3ff;--brand-soft:rgba(0,163,255,0.12);--success:#7be0a4;--shadow:0 16px 40px rgba(0,0,0,0.28);--radius:24px}
-    *{box-sizing:border-box} html{scroll-behavior:smooth}
-    body{margin:0;font-family:Arial,Helvetica,sans-serif;background:radial-gradient(circle at top right, rgba(0,163,255,0.10), transparent 18%),linear-gradient(180deg, #081018 0%, #0b0f14 100%);color:var(--text);line-height:1.5}
-    a{text-decoration:none;color:inherit} img{max-width:100%;display:block}.container{width:min(1180px,92%);margin:0 auto}
-    header{position:sticky;top:0;z-index:50;backdrop-filter:blur(12px);background:rgba(8,16,24,0.82);border-bottom:1px solid var(--line)}
-    .nav{display:flex;justify-content:space-between;align-items:center;gap:18px;padding:16px 0}
-    .brand{font-size:1.08rem;font-weight:800;letter-spacing:1.2px}.brand small{display:block;margin-top:2px;font-size:.72rem;font-weight:500;color:var(--muted);letter-spacing:.5px}
-    .nav-links{display:flex;align-items:center;gap:16px;color:rgba(255,255,255,.85);font-size:.95rem;flex-wrap:wrap}
-    .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:13px 17px;border-radius:14px;font-weight:700;border:1px solid transparent;transition:transform .18s ease, opacity .18s ease;cursor:pointer;white-space:nowrap}
-    .btn:hover{transform:translateY(-1px);opacity:.98}.btn-primary{background:var(--brand);color:#081018}.btn-secondary{background:rgba(255,255,255,.03);border-color:rgba(255,255,255,.12);color:var(--text)}
-    .btn-whatsapp{background:#25D366;color:#081018}.btn-pay{background:#f7c948;color:#081018}.btn-small{padding:10px 14px;border-radius:12px;font-size:.92rem}.nav-cta{padding:10px 14px;border-radius:12px;background:var(--brand);color:#081018;font-weight:700}
-    .hero{padding:82px 0 34px}.hero-grid{display:grid;grid-template-columns:1.12fr .88fr;gap:26px;align-items:stretch}
-    .eyebrow{display:inline-block;padding:8px 12px;border-radius:999px;background:var(--brand-soft);border:1px solid rgba(0,163,255,.18);color:#8fdbff;font-size:.86rem;margin-bottom:18px}
-    h1{margin:0 0 16px;font-size:clamp(2.4rem,5.4vw,4.9rem);line-height:.95;letter-spacing:-1.6px;max-width:760px}.accent{color:var(--brand)} .lead{max-width:760px;font-size:1.1rem;color:rgba(255,255,255,.82);margin:0 0 24px}
-    .button-row{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:18px}.micro-proof{display:flex;flex-wrap:wrap;gap:12px;color:rgba(255,255,255,.7);font-size:.95rem}.micro-proof span{padding:8px 12px;border-radius:999px;background:rgba(255,255,255,.04);border:1px solid var(--line)}
-    .panel,.card,.cta-box,.feature,.search-wrap{background:rgba(255,255,255,.04);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow)}
-    .hero-panel{padding:24px;display:flex;flex-direction:column;justify-content:space-between}.hero-panel h3{margin:0 0 12px;font-size:1.15rem}.hero-list{list-style:none;margin:0;padding:0}.hero-list li{padding:12px 0;border-bottom:1px solid var(--line);color:rgba(255,255,255,.8)} .hero-list li:last-child{border-bottom:none}
-    .hero-note{margin-top:18px;padding:16px;border-radius:18px;background:rgba(0,163,255,.08);border:1px solid rgba(0,163,255,.14);color:#d7f2ff;font-size:.95rem}
-    section{padding:30px 0 64px}.section-head{margin-bottom:22px}.section-head h2{margin:0 0 10px;font-size:2rem;letter-spacing:-.5px}.section-head p{margin:0;color:rgba(255,255,255,.74);max-width:820px}
-    .grid-3,.grid-2{display:grid;gap:18px}.grid-3{grid-template-columns:repeat(3,1fr)}.grid-2{grid-template-columns:repeat(2,1fr)}.card{padding:24px}.card h3{margin:0 0 10px;font-size:1.08rem}.card p{margin:0;color:rgba(255,255,255,.74)}
-    .highlight{color:#92ddff;font-weight:700}.search-wrap{padding:18px;margin-bottom:18px}.filters{display:flex;gap:12px;flex-wrap:wrap;align-items:center}
-    .search-input,.select{background:var(--card-2);border:1px solid var(--line);color:var(--text);padding:12px 14px;border-radius:14px;outline:none;min-width:220px;flex:1 1 240px}
-    .pill-row{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px}.pill-btn{border:1px solid var(--line);background:rgba(255,255,255,.03);color:var(--text);padding:9px 12px;border-radius:999px;cursor:pointer;font-weight:700;font-size:.92rem}.pill-btn.active{background:var(--brand-soft);border-color:rgba(0,163,255,.28);color:#9ce0ff}
-    .catalog-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.product-card{overflow:hidden;display:flex;flex-direction:column;background:rgba(255,255,255,.04);border:1px solid var(--line);border-radius:24px;box-shadow:var(--shadow);min-height:100%}
-    .product-image-wrap{position:relative;aspect-ratio:1 /.76;background:#0f1620;overflow:hidden;border-bottom:1px solid var(--line)}.product-image{width:100%;height:100%;object-fit:cover;background:#0f1620}
-    .badge,.availability{position:absolute;top:12px;padding:7px 10px;border-radius:999px;font-size:.82rem;font-weight:700;backdrop-filter:blur(8px)}
-    .badge{left:12px;background:rgba(8,16,24,.75);color:#dff6ff;border:1px solid rgba(255,255,255,.12)}.availability{right:12px;background:rgba(15,24,32,.86);border:1px solid rgba(255,255,255,.12);color:var(--success)}
-    .product-body{padding:18px;display:flex;flex-direction:column;gap:10px;flex:1}.product-title{margin:0;font-size:1.12rem}.product-desc{margin:0;color:var(--muted);font-size:.96rem;min-height:58px}
-    .product-meta{display:flex;flex-wrap:wrap;gap:8px;font-size:.88rem;color:var(--muted)}.meta-tag{padding:7px 10px;border-radius:999px;background:rgba(255,255,255,.04);border:1px solid var(--line)}
-    .product-price-row{display:flex;justify-content:space-between;align-items:flex-end;gap:12px;margin-top:auto;padding-top:8px}.price-wrap{display:flex;flex-direction:column;gap:2px}.price-label{color:var(--muted-2);font-size:.82rem}.price{font-size:1.4rem;font-weight:800;letter-spacing:-.5px}
-    .product-actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:12px}.how-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}.feature{padding:20px}.feature-step{display:inline-flex;align-items:center;justify-content:center;width:34px;height:34px;border-radius:50%;background:var(--brand-soft);color:#8fdbff;font-weight:800;margin-bottom:12px;border:1px solid rgba(0,163,255,.16)}
-    .feature h3{margin:0 0 8px;font-size:1rem}.feature p{margin:0;color:var(--muted);font-size:.94rem}.cta-box{padding:34px;text-align:center;background:linear-gradient(180deg, rgba(0,163,255,.14), rgba(255,255,255,.03))}
-    .cta-box h2{margin:0 0 12px;font-size:2rem}.cta-box p{margin:0 auto 22px;max-width:760px;color:rgba(255,255,255,.76)}.social-row{display:flex;flex-wrap:wrap;justify-content:center;gap:12px;margin-bottom:14px}.footer-note{color:rgba(255,255,255,.64);font-size:.95rem}
-    .business-details{
-  margin-top:18px;
-  padding:16px;
-  border:1px solid rgba(255,255,255,.08);
-  border-radius:16px;
-  background:rgba(255,255,255,.03);
-}
-.business-details p{
-  margin:6px 0;
-  color:rgba(255,255,255,.72);
-  font-size:.92rem;
-}
-.business-details strong{
-  color:#f5f7fa;
-}footer{padding:20px 0 42px;color:rgba(255,255,255,.56);font-size:.9rem}.empty-state{display:none;padding:28px;text-align:center;color:var(--muted);border:1px dashed rgba(255,255,255,.14);border-radius:22px;background:rgba(255,255,255,.02)}
-    @media (max-width:1080px){.catalog-grid{grid-template-columns:repeat(2,1fr)}.grid-3{grid-template-columns:repeat(2,1fr)}.how-grid{grid-template-columns:repeat(2,1fr)}}
-    @media (max-width:900px){.hero-grid,.grid-2,.grid-3{grid-template-columns:1fr}.nav-links a:not(.nav-cta){display:none}.hero{padding-top:62px}h1{line-height:1}.catalog-grid{grid-template-columns:1fr}}
-  </style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Nicafiets | Fietsonderdelen, e-bike en fatbike service Nijmegen</title>
+<meta name="description" content="Nicafiets: webshop voor fietsonderdelen, e-bike en fatbike onderdelen, plus mobiele reparatie aan huis in Nijmegen. Bestel via WhatsApp of iDEAL.">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BicycleStore","name":"Nicafiets","telephone":"+31643270969","email":"infovangomez@gmail.com","url":"https://nicafiets.github.io/","areaServed":"Nijmegen","address":{"@type":"PostalAddress","addressLocality":"Nijmegen","addressCountry":"NL"}}</script>
+<style>
+:root{--ink:#0d1117;--mu:#5b6573;--bg:#f6f7f9;--pn:#fff;--rule:#dde1e7;--bl:#1f5fd1;--bl2:#17479e}
+*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:72px}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif}
+a{color:inherit}.w{max-width:1140px;margin:0 auto;padding:0 20px}
+.top{background:var(--ink);color:#c5ccd6;font-size:13px;padding:7px 0}.top .w{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap}
+header{background:var(--pn);border-bottom:1px solid var(--rule);position:sticky;top:0;z-index:10}
+header .w{display:flex;align-items:center;justify-content:space-between;height:64px;gap:16px}
+.logo{font-weight:800;letter-spacing:2px;text-decoration:none;font-size:18px}.logo span{color:var(--bl)}
+nav{display:flex;gap:22px;font-size:14px;align-items:center}nav a{text-decoration:none;color:var(--mu)}nav a:hover{color:var(--ink)}
+.btn{display:inline-block;background:var(--bl);color:#fff;border:0;border-radius:3px;padding:11px 20px;font:600 14px/1.2 inherit;font-family:inherit;text-decoration:none;cursor:pointer;text-align:center}
+.btn:hover{background:var(--bl2)}.btn.o{background:transparent;color:var(--ink);border:1px solid var(--ink)}.btn.o:hover{background:var(--ink);color:#fff}.btn.wh{background:#fff;color:var(--ink)}
+.hero{background:var(--ink);color:#fff;padding:64px 0 56px}.hero .w{display:grid;grid-template-columns:1.4fr 1fr;gap:48px;align-items:center}
+.eyebrow{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--bl);font-weight:700}.hero .eyebrow{color:#7fa8f5}
+h1{font-family:Georgia,"Times New Roman",serif;font-size:clamp(30px,4.6vw,46px);line-height:1.12;margin:10px 0 16px}
+.hero p{color:#c5ccd6;max-width:520px;margin:0 0 24px}.hero .btn+.btn{margin-left:8px}
+.facts{border:1px solid #2a3340}.facts div{display:flex;justify-content:space-between;gap:12px;padding:13px 16px;border-bottom:1px solid #2a3340;font-size:14px}.facts div:last-child{border:0}.facts span{color:#aab4c1;text-align:right}
+.brands{background:var(--pn);border-bottom:1px solid var(--rule);padding:18px 0;font-size:13px;color:var(--mu)}.brands .w{display:flex;gap:10px 28px;flex-wrap:wrap;align-items:center}.brands b{color:var(--ink);letter-spacing:.06em}
+section{padding:56px 0;border-bottom:1px solid var(--rule)}
+h2{font-family:Georgia,"Times New Roman",serif;font-size:28px;margin:6px 0 8px}.lead{color:var(--mu);margin:0 0 26px;max-width:620px}
+.sg{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:16px}
+.sc{background:var(--pn);border:1px solid var(--rule)}.sc .pi{aspect-ratio:16/10}.sc div.t{padding:16px}.sc h3{margin:0 0 4px;font-size:17px}.sc p{margin:0 0 8px;color:var(--mu);font-size:14px}.sc b{color:var(--bl)}
+.bar{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:14px}.bar input{flex:1;min-width:180px}
+input,select,textarea{font:inherit;padding:10px 12px;border:1px solid var(--rule);border-radius:3px;background:var(--pn);color:var(--ink);width:100%}.bar select{width:auto}
+.chips{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:20px}.chip{border:1px solid var(--rule);background:var(--pn);padding:7px 14px;border-radius:999px;font-size:13px;cursor:pointer;font-family:inherit;color:var(--ink)}.chip.on{background:var(--ink);color:#fff;border-color:var(--ink)}
+.pg{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:16px}
+.pc{background:var(--pn);border:1px solid var(--rule);display:flex;flex-direction:column}
+.pi{aspect-ratio:4/3;background:#eceff3;display:grid;place-items:center;color:#8a94a3;font-size:12px;letter-spacing:.1em;text-transform:uppercase;overflow:hidden}.pi img{width:100%;height:100%;object-fit:cover}
+.pb{padding:16px;display:flex;flex-direction:column;gap:6px;flex:1}.pb .c{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--bl);font-weight:700}
+.pb h3{margin:0;font-size:16px}.pb p{margin:0;color:var(--mu);font-size:14px}.pr{font-size:20px;font-weight:700;margin-top:auto;padding-top:8px}.pr small{font-size:12px;color:var(--mu);font-weight:400}
+.act{display:flex;gap:8px;margin-top:8px}.act .btn{flex:1;padding:10px 8px;font-size:13px}
+.steps{display:grid;grid-template-columns:repeat(4,1fr);border:1px solid var(--rule);background:var(--pn)}.steps div{padding:22px;border-right:1px solid var(--rule)}.steps div:last-child{border:0}
+.steps b{display:block;font-family:Georgia,serif;font-size:28px;color:var(--bl)}.steps h3{margin:6px 0;font-size:16px}.steps p{margin:0;font-size:14px;color:var(--mu)}
+.cg{display:grid;grid-template-columns:1fr 1fr;gap:40px}.form{display:grid;gap:10px}.det p{margin:0 0 8px}.det b{display:inline-block;min-width:80px}
+footer{background:var(--ink);color:#aab4c1;padding:34px 0;font-size:13px}footer .w{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}footer a{color:#fff}
+.empty{padding:30px;text-align:center;color:var(--mu);border:1px dashed var(--rule);grid-column:1/-1}
+#dr{position:fixed;top:0;right:0;bottom:0;width:min(400px,100%);background:var(--pn);border-left:1px solid var(--rule);z-index:50;transform:translateX(100%);transition:transform .25s;display:flex;flex-direction:column;padding:18px}#dr.open{transform:none}
+#ci{flex:1;overflow:auto}.row{display:flex;justify-content:space-between;align-items:center;gap:8px;padding:10px 0;border-bottom:1px solid var(--rule);font-size:14px}
+.q button{width:28px;height:28px;border:1px solid var(--rule);background:var(--bg);cursor:pointer;border-radius:3px}.note{font-size:12px;color:var(--mu)}
+#lgw{position:fixed;inset:0;background:rgba(13,17,23,.6);z-index:60;display:none;padding:20px;overflow:auto}#lgw.open{display:block}
+#lgb{background:var(--pn);max-width:760px;margin:0 auto;padding:28px;border-radius:3px}#lgb h2{margin-top:0}#lgb h3{margin:20px 0 4px;font-size:16px}#lgb p{margin:0;color:#2b3440;font-size:15px}
+.lv{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.lv div{background:var(--pn);border:1px solid var(--rule);padding:20px}.lv h3{margin:0 0 6px;font-size:16px}.lv p{margin:0;color:var(--mu);font-size:14px}.lv a{color:var(--bl)}
+@media(max-width:800px){.lv{grid-template-columns:1fr}}
+@media(max-width:800px){.hero .w,.cg{grid-template-columns:1fr}.steps{grid-template-columns:1fr 1fr}.steps div{border-bottom:1px solid var(--rule)}nav a.h{display:none}}
+</style>
 </head>
 <body>
-  <header><div class="container nav"><div class="brand">NICAFIETS<small>MOBILE BIKE SERVICE & ONLINE CATALOG</small></div>
-    <nav class="nav-links"><a href="#catalog">Catalog</a><a href="#services">Services</a><a href="#how">How to order</a><a href="#contact">Contact</a><a class="nav-cta" href="https://wa.me/31643270969" target="_blank" rel="noopener noreferrer">WhatsApp</a></nav>
-  </div></header>
-  <main>
-    <section class="hero"><div class="container hero-grid"><div>
-      <div class="eyebrow">Built around your time.</div>
-      <h1>Bike products. <span class="accent">Mobile service..</span>.</h1>
-      <p class="lead">NICAFIETS brings practical bike products and mobile bike service together in one place.
-Order easily through WhatsApp and pay securely with iDEAL and other trusted payment methods.</p>
-      <div class="button-row"><a class="btn btn-primary" href="#catalog">View catalog</a><a class="btn btn-whatsapp" href="https://wa.me/31643270969?text=Hello%20NICAFIETS,%20I%20want%20help%20with%20a%20product%20or%20service." target="_blank" rel="noopener noreferrer">Ask on WhatsApp</a></div>
-      <div class="micro-proof"><span>At your location</span><span>Fast contact</span><span>Secure payment</span><span>Practical solutions</span></div>
-    </div>
-    <div class="panel hero-panel"><div><h3>What makes this different</h3>
-      <ul class="hero-list"><li>Products selected for practical daily use</li><li>Faster communication when something matters now</li><li>Direct help when you need service or advice</li><li>Bike care that fits real life better</li></ul>
-    </div><div class="hero-note">Because good service should feel simple and professional</div></div>
-    </div></section>
+<div class="top"><div class="w"><span>Mobiele service in Nijmegen en omgeving</span><span>+31 6 43270969 · infovangomez@gmail.com</span></div></div>
+<header><div class="w">
+  <a class="logo" href="#">NICA<span>FIETS</span></a>
+  <nav><a class="h" href="#diensten">Diensten</a><a class="h" href="#shop">Webshop</a><a class="h" href="#werkwijze">Werkwijze</a><a class="h" href="#contact">Contact</a><button class="btn" onclick="tc(true)">Winkelwagen (<span id="cc">0</span>)</button></nav>
+</div></header>
 
-    <section id="catalog"><div class="container">
-      <div class="section-head"><h2>Selected essentials</h2><p>A focused selection of practical products and services chosen to make everyday riding easier, more reliable and less stressful.</p></div>
-      <div class="search-wrap">
-        <div class="filters"><input id="searchInput" class="search-input" type="text" placeholder="Search product, category or keyword..." />
-          <select id="sortSelect" class="select">
-            <option value="default">Sort: Featured</option><option value="price-low">Price: Low to high</option><option value="price-high">Price: High to low</option><option value="name-az">Name: A to Z</option>
-          </select></div>
-        <div id="categoryPills" class="pill-row"></div>
-      </div>
-      <div id="catalogGrid" class="catalog-grid"></div><div id="emptyState" class="empty-state">No products match your search right now.</div>
-    </div></section>
+<div class="hero"><div class="w">
+  <div><div class="eyebrow">Fietsonderdelen en service</div>
+  <h1>Alles voor uw fiets, e-bike en fatbike. Online besteld, thuis gemonteerd.</h1>
+  <p>Een breed assortiment onderdelen en accessoires, met mobiele reparatie aan huis in Nijmegen. Bestel via de webshop en wij regelen levering en montage.</p>
+  <a class="btn" href="#shop">Naar de webshop</a><a class="btn wh" href="#contact">Afspraak maken</a></div>
+  <div class="facts">
+    <div><b>Werkgebied</b><span>Nijmegen en omgeving</span></div>
+    <div><b>Assortiment</b><span>Fiets, e-bike, fatbike</span></div>
+    <div><b>Montage</b><span>Aan huis mogelijk</span></div>
+    <div><b>Betaling</b><span>iDEAL en betaallink</span></div>
+  </div>
+</div></div>
+<div class="brands"><div class="w"><b>ASSORTIMENT VIA ONZE LEVERANCIERS</b><span>Bafang</span><span>Sache Bikes</span><span>Kruitbosch</span><span>Fatbikeskopen.nl</span><span>HollandBikesShop</span><span>Mantel</span></div></div>
 
-    <section id="services"><div class="container">
-  <div class="section-head"><h2>Why order with NICAFIETS</h2><p>A more practical way to buy bike essentials and arrange service with less hassle, clearer choices and more personal support.</p></div>
-  <div class="grid-3">
-    <div class="card"><h3>More convenience</h3><p>Order useful bike products and arrange service in a simpler way, without unnecessary back and forth.</p></div>
-    <div class="card"><h3>More clarity</h3><p>Clear product choices, practical information and a more focused selection for everyday riding needs.</p></div>
-    <div class="card"><h3>More personal support</h3><p>Direct contact when you need help choosing the right product or arranging the right service for your bike.</p></div>
+<section id="diensten"><div class="w">
+  <div class="eyebrow">Diensten</div><h2>Reparatie aan huis</h2>
+  <p class="lead">Elke reparatie begint met een duidelijke offerte. Onderdelen worden apart en transparant berekend.</p>
+  <div class="sg" id="svc"></div>
+</div></section>
+
+<section id="shop"><div class="w">
+  <div class="eyebrow">Webshop</div><h2>Onderdelen en accessoires</h2>
+  <p class="lead" id="vl">Prijzen zijn inclusief btw. Voeg toe aan de winkelwagen en bestel via WhatsApp, of laat ons monteren.</p>
+  <div class="bar"><input id="q" type="search" placeholder="Zoek product, merk of type" oninput="show()">
+  <select id="so" onchange="show()"><option value="f">Aanbevolen</option><option value="a">Prijs laag-hoog</option><option value="d">Prijs hoog-laag</option><option value="n">Naam A-Z</option></select></div>
+  <div class="chips" id="chips"></div>
+  <div class="pg" id="pg"></div>
+</div></section>
+
+<section id="werkwijze"><div class="w">
+  <div class="eyebrow">Werkwijze</div><h2>In vier stappen geregeld</h2><p class="lead"></p>
+  <div class="steps">
+    <div><b>1</b><h3>Kies</h3><p>Voeg producten toe of beschrijf uw probleem.</p></div>
+    <div><b>2</b><h3>Bevestig</h3><p>Wij bevestigen voorraad, prijs en levertijd.</p></div>
+    <div><b>3</b><h3>Betaal</h3><p>Betaal veilig met iDEAL via een betaallink.</p></div>
+    <div><b>4</b><h3>Ontvang</h3><p>Levering of montage bij u thuis.</p></div>
   </div>
 </div></section>
 
-    <section id="how"><div class="container">
-      <div class="section-head"><h2>How to order</h2><p>Keep it simple: product first, then WhatsApp or direct payment, then delivery, installation or service confirmation.</p></div>
-      <div class="how-grid">
-        <div class="feature"><div class="feature-step">1</div><h3>Choose product</h3><p>Open the catalog and view the product details, price and image.</p></div>
-        <div class="feature"><div class="feature-step">2</div><h3>Message or pay</h3><p>Click WhatsApp to ask first, or click the payment button to pay directly.</p></div>
-        <div class="feature"><div class="feature-step">3</div><h3>Confirm details</h3><p>NICAFIETS confirms stock, delivery, installation or appointment details.</p></div>
-        <div class="feature"><div class="feature-step">4</div><h3>Complete order</h3><p>Receive the product, installation or service in a simple professional way.</p></div>
-      </div>
-    </div></section>
-
-    <section id="contact"><div class="container"><div class="cta-box">
-      <h2>Need help with a product or service today?</h2>
-      <p>Send a message with the product name, your location and what you need. NICAFIETS will reply with the fastest practical solution.</p>
-      <div class="social-row"><a class="btn btn-whatsapp" href="https://wa.me/31643270969?text=Hello%20NICAFIETS,%20I%20want%20help%20with%20a%20product%20or%20service." target="_blank" rel="noopener noreferrer">Open WhatsApp</a><a class="btn btn-secondary" href="https://instagram.com/vangomez.nl" target="_blank" rel="noopener noreferrer">Instagram</a><a class="btn btn-secondary" href="https://tiktok.com/@vangomez024" target="_blank" rel="noopener noreferrer">TikTok</a></div>
-      <div class="footer-note"> +31 6 43270969 · infovangomez@gmail.com </div>
-    </div></div></section>
-  </main>
-  <footer>
-  <div class="container">
-    <div class="business-details">
-      <p><strong>KvK:</strong> 99784017</p>
-      <p><strong>BTW:</strong> NL005412642B83</p>
-      <p><strong>IBAN:</strong> NL46INGB0116224592</p>
-    </div>
-    <div style="margin-top:16px;">
-      © 2026 NICAFIETS — Powered by VANGOMEZ
-    </div>
+<section id="levering"><div class="w">
+  <div class="eyebrow">Levering en retour</div><h2>Duidelijke afspraken</h2><p class="lead"></p>
+  <div class="lv">
+    <div><h3>Verzending</h3><p>Pakketbezorging rechtstreeks vanuit onze leveranciers of door ons zelf. In Nijmegen bezorgen wij ook met eigen vervoer. <a href="#verzending" onclick="lg('verzending');return false">Lees meer</a></p></div>
+    <div><h3>14 dagen bedenktijd</h3><p>U mag uw bestelling binnen 14 dagen na ontvangst zonder opgave van reden retourneren. <a href="#retour" onclick="lg('retour');return false">Retourbeleid</a></p></div>
+    <div><h3>Veilig betalen</h3><p>Betaling via iDEAL met een betaallink van Mollie. Uw gegevens worden zorgvuldig behandeld. <a href="#privacy" onclick="lg('privacy');return false">Privacy</a></p></div>
   </div>
-</footer>
-
-  <script>
-  const WHATSAPP_NUMBER = "31643270969";
-
-  const PRODUCTS = [
-    {
-      id: 1,
-      name: "Cortina Crate Dubai",
-      category: "Crates",
-      price: "From €19.99",
-      sortPrice: 19.99,
-      shortDescription: "Practical front crate for everyday city bike use.",
-      fullDescription: "A clean and practical front crate for carrying bags, groceries or daily items. Installation and mounting options are available depending on your bike.",
-      image: "images/cortinakratten.jpg",
-      tags: ["Daily use", "Front crate", "Installation available"],
-      availability: "Available",
-      included: [
-        "Product advice before ordering",
-        "WhatsApp support",
-        "Installation option in Nijmegen"
-      ],
-      extras: [
-        "Mounting parts if needed",
-        "MIK adapter if required",
-        "Travel cost outside Nijmegen"
-      ],
-      whatsappText: "Hello NICAFIETS, I want to order the Cortina Crate Dubai. Can you confirm the price and installation options?",
-      mollie: "",
-      featured: true
-    },
-
-    {
-      id: 2,
-      name: "Front Light",
-      category: "Lights",
-      price: "From €6.99",
-      sortPrice: 6.99,
-      shortDescription: "Front light options for better visibility and safer daily riding.",
-      fullDescription: "Front light options available for city bikes, student bikes and daily use. NICAFIETS can help you choose the right model depending on your bike, budget and mounting type.",
-      image: "images/front-light-NF.jpg",
-      tags: ["Safety", "Daily riding", "Easy upgrade"],
-      availability: "Available",
-      included: [
-        "Product advice",
-        "Different models available",
-        "Installation optional"
-      ],
-      extras: [
-        "Installation service",
-        "Higher quality light option",
-        "Mounting parts if needed"
-      ],
-      whatsappText: "Hello NICAFIETS, I want to order a front light. Can you help me choose the right option?",
-      mollie: "",
-      featured: true
-    },
-
-    {
-      id: 3,
-      name: "Chain Lock",
-      category: "Locks",
-      price: "From €24.99",
-      sortPrice: 14.99,
-      shortDescription: "Chain lock options for daily city bike security.",
-      fullDescription: "Bike lock options selected for daily use in the city. Available in different sizes, brands and security levels. Basic chain locks start from €24.99, code locks from €29.99 and ART2 / premium options from €59.99 depending on availability.",
-      image: "images/Abus120.jpg",
-      tags: ["Security", "City", "Ready to use"],
-      availability: "Available",
-      included: [
-        "Product advice",
-        "Different security levels available",
-        "Ready to use"
-      ],
-      extras: [
-         "Code lock option from €29.99",
-  "ART2 / premium lock option from €59.99",
-  "Longer or higher security chain depending on availability"
-      ],
-      whatsappText: "Hello NICAFIETS, I want to order a bike lock. Can you send me the available options?",
-      mollie: "",
-      featured: true
-    },
-
-    {
-      id: 4,
-      name: "Inner Tube Replacement",
-      category: "Tires & Inner Tubes",
-      price: "From €24.99",
-      sortPrice: 24.99,
-      shortDescription: "Mobile inner tube replacement for city bikes.",
-      fullDescription: "Inner tube replacement at your location. Suitable for common city bikes, student bikes and daily-use bicycles. NICAFIETS checks the tire and installs the correct inner tube when available.",
-      image: "images/Schwalbe-DV17.jpg",
-      tags: ["Fast fix", "Common repair", "Mobile service"],
-      availability: "On request",
-      included: [
-        "Service at your location",
-        "Basic tire check",
-        "Inner tube installation"
-      ],
-      extras: [
-        "New outer tire if damaged",
-        "Special inner tube size",
-        "Travel cost outside Nijmegen"
-      ],
-      whatsappText: "Hello NICAFIETS, I need an inner tube replacement. My bike location is:",
-      mollie: "",
-      featured: true
-    },
-
-    {
-      id: 5,
-      name: "Flat Tire Repair Service",
-      category: "Services",
-      price: "From €24.99",
-      sortPrice: 24.99,
-      shortDescription: "Mobile flat tire repair at your location.",
-      fullDescription: "A convenient mobile repair service for flat tires. NICAFIETS comes to your location, checks the tire and provides the fastest practical solution depending on the condition of the tube and tire.",
-      image: "images/flattire.png",
-      tags: ["Mobile", "Fast support", "At your location"],
-      availability: "Book now",
-      included: [
-        "Mobile service in Nijmegen",
-        "Basic tire inspection",
-        "Repair or replacement advice"
-      ],
-      extras: [
-        "New inner tube if needed",
-        "New outer tire if needed",
-        "Travel cost outside Nijmegen"
-      ],
-      whatsappText: "Hello NICAFIETS, I want to book a flat tire repair service. My location is:",
-      mollie: "",
-      featured: true
-    },
-
-    {
-      id: 6,
-      name: "Brake Adjustment Service",
-      category: "Services",
-      price: "From €19.99",
-      sortPrice: 19.99,
-      shortDescription: "Brake adjustment for better control and safer riding.",
-      fullDescription: "NICAFIETS checks and adjusts your brakes at your location. If parts are worn or damaged, you receive clear advice before anything extra is done.",
-      image: "images/brake-adjustment-NF.jpeg",
-      tags: ["Safety", "Adjustment", "Mobile service"],
-      availability: "Book now",
-      included: [
-        "Brake inspection",
-        "Brake adjustment",
-        "Basic safety check"
-      ],
-      extras: [
-        "Brake pads if needed",
-        "Brake cable if needed",
-        "Hydraulic brake bleeding if needed"
-      ],
-      whatsappText: "Hello NICAFIETS, I want to book a brake adjustment service. My location is:",
-      mollie: "",
-      featured: true
-    },
-
-    {
-      id: 7,
-      name: "City Tire 28 Inch",
-      category: "Tires & Inner Tubes",
-      price: "From €24.99",
-      sortPrice: 24.99,
-      shortDescription: "City bike tire options for daily commuting.",
-      fullDescription: "Quality 28 inch city bike tires available on request. NICAFIETS can help you choose a suitable tire depending on your bike, riding style and budget.",
-      image: "images/city-tires8001.jpg",
-      tags: ["28 inch", "City bike", "Replacement"],
-      availability: "On request",
-      included: [
-        "Product advice",
-        "Different tire options",
-        "Installation available"
-      ],
-      extras: [
-        "Inner tube if needed",
-        "Installation service",
-        "Travel cost outside Nijmegen"
-      ],
-      whatsappText: "Hello NICAFIETS, I want to order a 28 inch city bike tire. Can you confirm the options?",
-      mollie: "",
-      featured: false
-    },
-
-    {
-  id: 8,
-  name: "Rear Light",
-  category: "Lights",
-  price: "From €6.95",
-  sortPrice: 6.95,
-  shortDescription: "Rear light options for city bikes, e-bikes and fatbikes.",
-  fullDescription: "NICAFIETS offers different rear light options depending on your bike, mounting type and budget. You can order the product only or choose installation at your location.",
-  image: "images/rear-light-NF.jpeg",
-  tags: ["Safety", "Rear light", "Battery", "USB option"],
-  availability: "Available",
-  included: [
-    "IKZI Light rear light: from €6.95 / €6.99",
-    "Axa Run Compact: from €8.95",
-    "Axa City: from €9.95",
-    "Axa Spark: from €15.95",
-    "Urban Proof USB brake light: from €19.99",
-    "Axa Riff: from €21.95",
-    "EB-Parts fatbike Ouxi V8 rear light: from €24.00"
-  ],
-  extras: [
-    "Product only: available on request",
-    "Product + mobile installation available",
-    "Installation price depends on mounting type and bike model",
-    "Mounting parts or cables may be needed",
-    "Delivery or service options available depending on your location"
-  ],
-  whatsappText: "Hello NICAFIETS, I want to order a rear light. Can you help me choose the right option for my bike? ",
-  mollie: "",
-  featured: false
-},
-
-    {
-  id: 9,
-  name: "Fatbike Tire Service",
-  category: "Fatbike",
-  price: "Tires from €36.95",
-  sortPrice: 36.95,
-  shortDescription: "20 x 4.00 fatbike tires with clear options and installation available.",
-  fullDescription: "For 20 x 4.00 fatbike tires, NICAFIETS offers several options depending on brand, quality and availability. Standard tire from €36.95, Urban Proof from €39.95, Kenda popular replacement from €44.00 and CST stronger options from €46.95. Installation is available at your location from €20 per wheel.",
-  image: "images/fatbike-tire-service-NF.jpeg",
-  tags: ["Fatbike", "20 x 4.00", "Kenda option", "Installation"],
-  availability: "On request",
-  included: [
-    "Delium: from €36.95",
-    "Urban Proof: from €39.95",
-    "Kenda popular replacement: €44.00",
-    "CST stronger options: from €46.95"
-  ],
-  extras: [
-     "Tire only: from €36.95",
-  "Tire + mobile installation: from €56.95",
-  "Inner tube if needed: from €9.99",
-  "Premium options available on request",
-   "Delivery or service options available depending on your location"
-  ],
-  whatsappText: "Hello NICAFIETS, I want a 20 x 4.00 fatbike tire. Can you confirm the best option and installation price? My location is:",
-  mollie: "",
-  featured: true
-},
-    
- {
-  id: 10,
-  name: "Fatbike Brake Parts",
-  category: "Fatbike",
-  price: "On request",
-   sortPrice: 999,
-  shortDescription: "Brake pads, brake discs, brake levers and hydraulic brake parts available on request.",
-  fullDescription: "NICAFIETS can supply different fatbike brake parts, including brake pads, brake discs, brake levers, hydraulic brake sets and bleeding accessories. Compatibility depends on your bike model and brake system. Send a photo of your current part before ordering.",
-  image: "images/fatbike-brake-parts.jpg",
-  tags: ["Brake pads", "Brake discs", "Hydraulic brakes", "Fatbike"],
-  availability: "On request",
-  included: [
-    "Brake pads available on request",
-    "Brake discs 160 / 180 / 203 mm available",
-    "Hydraulic brake parts available",
-    "Compatibility check before ordering"
-  ],
-  extras: [
-    "Installation available at your location",
-    "Bleeding service available if needed",
-    "Send a photo before ordering",
-    "Delivery or service options depending on your location"
-  ],
-  whatsappText: "Hello NICAFIETS, I need fatbike brake parts. I can send a photo of my bike and current part. My location is:",
-  mollie: "",
-  featured: true
-} 
-    ];
-
-  const PLACEHOLDER =
-    "data:image/svg+xml;utf8," +
-    encodeURIComponent(
-      "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 780'><defs><linearGradient id='g' x1='0' y1='0' x2='1' y2='1'><stop offset='0%' stop-color='#0f1722'/><stop offset='100%' stop-color='#16283a'/></linearGradient></defs><rect width='1200' height='780' fill='url(#g)'/><circle cx='980' cy='80' r='180' fill='rgba(0,163,255,0.10)'/><text x='50%' y='47%' text-anchor='middle' fill='#d8ecf7' font-family='Arial, Helvetica, sans-serif' font-size='54' font-weight='700'>NICAFIETS</text><text x='50%' y='56%' text-anchor='middle' fill='rgba(255,255,255,0.65)' font-family='Arial, Helvetica, sans-serif' font-size='28'>Product photo</text></svg>"
-    );
-
-  const catalogGrid = document.getElementById("catalogGrid");
-  const searchInput = document.getElementById("searchInput");
-  const sortSelect = document.getElementById("sortSelect");
-  const categoryPills = document.getElementById("categoryPills");
-  const emptyState = document.getElementById("emptyState");
-
-  let activeCategory = "All";
-
-  function addWebshopStyles() {
-    const style = document.createElement("style");
-    style.innerHTML = `
-      .details-btn {
-        background: rgba(255,255,255,.04);
-        color: #f5f7fa;
-        border: 1px solid rgba(255,255,255,.14);
-      }
-
-      .product-desc {
-        min-height: 48px;
-      }
-
-      .shop-trust-row {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 8px;
-        margin-top: 10px;
-        color: rgba(255,255,255,.66);
-        font-size: .86rem;
-      }
-
-      .shop-trust-row span {
-        padding: 6px 9px;
-        border-radius: 999px;
-        background: rgba(0,163,255,.08);
-        border: 1px solid rgba(0,163,255,.14);
-      }
-
-      .product-modal {
-        position: fixed;
-        inset: 0;
-        z-index: 9999;
-        display: none;
-        align-items: center;
-        justify-content: center;
-        padding: 18px;
-        background: rgba(0,0,0,.72);
-        backdrop-filter: blur(10px);
-      }
-
-      .product-modal.active {
-        display: flex;
-      }
-
-      .product-modal-box {
-        width: min(980px, 96vw);
-        max-height: 90vh;
-        overflow: auto;
-        background: #0b0f14;
-        border: 1px solid rgba(255,255,255,.12);
-        border-radius: 26px;
-        box-shadow: 0 24px 80px rgba(0,0,0,.48);
-      }
-
-      .product-modal-inner {
-        display: grid;
-        grid-template-columns: .95fr 1.05fr;
-        gap: 0;
-      }
-
-      .product-modal-image {
-        min-height: 100%;
-        background: #0f1620;
-      }
-
-      .product-modal-image img {
-        width: 100%;
-        height: 100%;
-        min-height: 420px;
-        object-fit: cover;
-      }
-
-      .product-modal-content {
-        padding: 28px;
-      }
-
-      .modal-top {
-        display: flex;
-        justify-content: space-between;
-        gap: 14px;
-        align-items: flex-start;
-        margin-bottom: 12px;
-      }
-
-      .modal-close {
-        border: 1px solid rgba(255,255,255,.14);
-        background: rgba(255,255,255,.05);
-        color: #fff;
-        width: 38px;
-        height: 38px;
-        border-radius: 50%;
-        font-size: 24px;
-        line-height: 1;
-        cursor: pointer;
-      }
-
-      .modal-category {
-        display: inline-block;
-        margin-bottom: 10px;
-        padding: 7px 10px;
-        border-radius: 999px;
-        color: #9ce0ff;
-        background: rgba(0,163,255,.10);
-        border: 1px solid rgba(0,163,255,.18);
-        font-size: .86rem;
-        font-weight: 700;
-      }
-
-      .product-modal h2 {
-        margin: 0 0 10px;
-        font-size: clamp(1.8rem, 4vw, 2.8rem);
-        line-height: 1;
-      }
-
-      .modal-description {
-        color: rgba(255,255,255,.76);
-        margin-bottom: 18px;
-      }
-
-      .modal-price-box {
-        display: flex;
-        justify-content: space-between;
-        gap: 16px;
-        align-items: center;
-        padding: 16px;
-        border-radius: 18px;
-        background: rgba(0,163,255,.08);
-        border: 1px solid rgba(0,163,255,.16);
-        margin: 18px 0;
-      }
-
-      .modal-price-box span {
-        color: rgba(255,255,255,.62);
-        font-size: .9rem;
-      }
-
-      .modal-price-box strong {
-        font-size: 1.6rem;
-        color: #fff;
-      }
-
-      .modal-section {
-        margin-top: 20px;
-      }
-
-      .modal-section h4 {
-        margin: 0 0 10px;
-        color: #fff;
-      }
-
-      .modal-section ul {
-        margin: 0;
-        padding-left: 20px;
-        color: rgba(255,255,255,.74);
-      }
-
-      .modal-section li {
-        margin: 7px 0;
-      }
-
-      .modal-actions {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 10px;
-        margin-top: 24px;
-      }
-
-      .modal-note {
-        margin-top: 16px;
-        color: rgba(255,255,255,.58);
-        font-size: .92rem;
-      }
-
-      @media (max-width: 820px) {
-        .product-modal-inner {
-          grid-template-columns: 1fr;
-        }
-
-        .product-modal-image img {
-          min-height: 260px;
-          max-height: 320px;
-        }
-
-        .product-modal-content {
-          padding: 22px;
-        }
-      }
-    `;
-    document.head.appendChild(style);
-  }
-
-  function createModal() {
-    const modal = document.createElement("div");
-    modal.id = "productModal";
-    modal.className = "product-modal";
-    modal.innerHTML = `<div class="product-modal-box" id="productModalBox"></div>`;
-    document.body.appendChild(modal);
-
-    modal.addEventListener("click", function(event) {
-      if (event.target.id === "productModal") {
-        closeProductModal();
-      }
-    });
-  }
-
-  function buildWhatsAppLink(text) {
-    return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(text)}`;
-  }
-
-  function hasMollieLink(product) {
-    return product.mollie && product.mollie.trim() !== "" && !product.mollie.includes("PASTE");
-  }
-
-  function categoriesFromProducts() {
-    return ["All", ...new Set(PRODUCTS.map(product => product.category))];
-  }
-
-  function renderCategoryPills() {
-    categoryPills.innerHTML = "";
-
-    categoriesFromProducts().forEach(category => {
-      const button = document.createElement("button");
-      button.className = "pill-btn" + (category === activeCategory ? " active" : "");
-      button.textContent = category;
-
-      button.addEventListener("click", () => {
-        activeCategory = category;
-        renderCategoryPills();
-        renderProducts();
-      });
-
-      categoryPills.appendChild(button);
-    });
-  }
-
-  function filteredProducts() {
-    const query = searchInput.value.trim().toLowerCase();
-
-    let result = PRODUCTS.filter(product => {
-      const matchCategory = activeCategory === "All" || product.category === activeCategory;
-
-      const haystack = [
-        product.name,
-        product.category,
-        product.shortDescription,
-        product.fullDescription,
-        ...(product.tags || [])
-      ].join(" ").toLowerCase();
-
-      return matchCategory && haystack.includes(query);
-    });
-
-    switch (sortSelect.value) {
-      case "price-low":
-        result.sort((a, b) => a.sortPrice - b.sortPrice);
-        break;
-      case "price-high":
-        result.sort((a, b) => b.sortPrice - a.sortPrice);
-        break;
-      case "name-az":
-        result.sort((a, b) => a.name.localeCompare(b.name));
-        break;
-      default:
-        result.sort((a, b) => Number(b.featured) - Number(a.featured));
-    }
-
-    return result;
-  }
-
-  function productCard(product) {
-    const card = document.createElement("article");
-    card.className = "product-card";
-
-    const paymentButton = hasMollieLink(product)
-  ? `<a class="btn btn-pay" href="${product.mollie}" target="_blank" rel="noopener noreferrer">Pay with iDEAL</a>`
-  : "";
-
-    card.innerHTML = `
-      <div class="product-image-wrap">
-        <img 
-          class="product-image" 
-          src="${product.image || PLACEHOLDER}" 
-          alt="${product.name}" 
-          onerror="this.onerror=null;this.src='${PLACEHOLDER}'"
-        />
-        <div class="badge">${product.category}</div>
-        <div class="availability">${product.availability}</div>
-      </div>
-
-      <div class="product-body">
-        <h3 class="product-title">${product.name}</h3>
-        <p class="product-desc">${product.shortDescription}</p>
-
-        <div class="product-meta">
-          ${(product.tags || []).map(tag => `<span class="meta-tag">${tag}</span>`).join("")}
-        </div>
-
-        <div class="shop-trust-row">
-          <span>Secure payment</span>
-          <span>WhatsApp support</span>
-        </div>
-
-        <div class="product-price-row">
-          <div class="price-wrap">
-            <span class="price-label">Price</span>
-            <span class="price">${product.price}</span>
-          </div>
-        </div>
-
-        <div class="product-actions">
-          <button class="btn btn-small details-btn" onclick="openProductModal(${product.id})">
-            View details
-          </button>
-
-          <a 
-            class="btn btn-small btn-whatsapp" 
-            href="${buildWhatsAppLink(product.whatsappText)}" 
-            target="_blank" 
-            rel="noopener noreferrer"
-          >
-            Ask / Order on WhatsApp
-          </a>
-
-          ${paymentButton}
-        </div>
-      </div>
-    `;
-
-    return card;
-  }
-
-  function renderProducts() {
-    const products = filteredProducts();
-
-    catalogGrid.innerHTML = "";
-    emptyState.style.display = products.length ? "none" : "block";
-
-    products.forEach(product => {
-      catalogGrid.appendChild(productCard(product));
-    });
-  }
-
-  function openProductModal(productId) {
-    const product = PRODUCTS.find(item => item.id === productId);
-    const modal = document.getElementById("productModal");
-    const modalBox = document.getElementById("productModalBox");
-
-    const paymentButton = hasMollieLink(product)
-      ? `<a class="btn btn-pay" href="${product.mollie}" target="_blank" rel="noopener noreferrer">Pay with iDEAL</a>`
-      : `<a class="btn btn-secondary" href="${buildWhatsAppLink(product.whatsappText)}" target="_blank" rel="noopener noreferrer">Request help to order</a>`;
-
-    modalBox.innerHTML = `
-      <div class="product-modal-inner">
-        <div class="product-modal-image">
-          <img 
-            src="${product.image || PLACEHOLDER}" 
-            alt="${product.name}" 
-            onerror="this.onerror=null;this.src='${PLACEHOLDER}'"
-          />
-        </div>
-
-        <div class="product-modal-content">
-          <div class="modal-top">
-            <div>
-              <span class="modal-category">${product.category}</span>
-              <h2>${product.name}</h2>
-            </div>
-            <button class="modal-close" onclick="closeProductModal()">×</button>
-          </div>
-
-          <p class="modal-description">${product.fullDescription}</p>
-
-          <div class="modal-price-box">
-            <span>Starting price</span>
-            <strong>${product.price}</strong>
-          </div>
-
-          <div class="modal-section">
-            <h4>Included</h4>
-            <ul>
-              ${product.included.map(item => `<li>${item}</li>`).join("")}
-            </ul>
-          </div>
-
-          <div class="modal-section">
-            <h4>Possible extra costs</h4>
-            <ul>
-              ${product.extras.map(item => `<li>${item}</li>`).join("")}
-            </ul>
-          </div>
-
-          <div class="product-meta modal-section">
-            ${(product.tags || []).map(tag => `<span class="meta-tag">${tag}</span>`).join("")}
-          </div>
-
-          <div class="modal-actions">
-            <a 
-              class="btn btn-whatsapp" 
-              href="${buildWhatsAppLink(product.whatsappText)}" 
-              target="_blank" 
-              rel="noopener noreferrer"
-            >
-              Order on WhatsApp
-            </a>
-
-            ${paymentButton}
-          </div>
-
-          <p class="modal-note">
-            Final price can depend on bike type, part size, stock, installation and service location.
-          </p>
-        </div>
-      </div>
-    `;
-
-    modal.classList.add("active");
-  }
-
-  function closeProductModal() {
-    document.getElementById("productModal").classList.remove("active");
-  }
-
-  addWebshopStyles();
-  createModal();
-  searchInput.addEventListener("input", renderProducts);
-  sortSelect.addEventListener("change", renderProducts);
-  renderCategoryPills();
-  renderProducts();
+</div></section>
+
+<section id="contact"><div class="w cg">
+  <div><div class="eyebrow">Contact</div><h2>Afspraak of vraag</h2>
+  <p class="lead">Vul het formulier in. WhatsApp opent met uw bericht en wij reageren zo snel mogelijk.</p>
+  <div class="det">
+    <p><b>WhatsApp</b><a href="https://wa.me/31643270969">+31 6 43270969</a></p>
+    <p><b>E-mail</b><a href="mailto:infovangomez@gmail.com">infovangomez@gmail.com</a></p>
+    <p><b>Instagram</b><a href="https://instagram.com/vangomez.nl">@vangomez.nl</a></p>
+    <p><b>TikTok</b><a href="https://tiktok.com/@vangomez024">@vangomez024</a></p></div></div>
+  <div class="form"><input id="n" placeholder="Naam"><input id="b" placeholder="Fiets (merk en type)"><input id="z" placeholder="Postcode en huisnummer"><textarea id="m" rows="4" placeholder="Wat heeft u nodig?"></textarea><button class="btn" onclick="send()">Verstuur via WhatsApp</button></div>
+</div></section>
+
+<footer><div class="w">
+  <div id="adr"></div><div><a href="#voorwaarden" onclick="lg('voorwaarden');return false">Algemene voorwaarden</a><br><a href="#privacy" onclick="lg('privacy');return false">Privacyverklaring</a><br><a href="#retour" onclick="lg('retour');return false">Retourbeleid en herroepingsformulier</a><br><a href="#verzending" onclick="lg('verzending');return false">Verzending en levering</a></div>
+</div></footer>
+
+<div id="lgw" onclick="if(event.target===this)lgc()"><div id="lgb"></div></div>
+<aside id="dr">
+  <div class="row"><b>Winkelwagen</b><button class="btn o" onclick="tc(false)">Sluiten</button></div>
+  <div id="ci"></div>
+  <div class="row"><span>Verzendkosten</span><span id="sh">€0,00</span></div><div class="row"><b>Totaal</b><b id="tot">€0,00</b></div>
+  <input id="cn" placeholder="Naam" style="margin-top:8px"><input id="ca" placeholder="Adres en postcode" style="margin:8px 0">
+  <select id="cm" style="margin-bottom:8px" onchange="draw()"><option value="p">Pakketbezorging</option><option value="e">Eigen bezorging Nijmegen</option><option value="m">Bezorgen en monteren (Nijmegen)</option><option value="o">Ophalen</option></select>
+  <button class="btn" onclick="checkout()">Bestellen via WhatsApp</button>
+  <p class="note">Wij bevestigen voorraad en levertijd en sturen een iDEAL betaallink. Met bestellen gaat u akkoord met onze <a href="#voorwaarden" onclick="lg('voorwaarden');return false">voorwaarden</a>. Montage wordt apart op offerte berekend.</p>
+</aside>
+
+<script>
+var PHONE="31643270969";
+// === PAS HIER AAN ===
+var SERVICES=[
+ {n:"Remmen afstellen en vervangen",d:"Mechanische en hydraulische remmen.",p:"Op offerte",img:"images/brake-adjustment-NF.jpeg"},
+ {n:"Fatbike banden",d:"Banden en binnenbanden wisselen op locatie.",p:"Op offerte",img:"images/fatbike-tire-service-NF.jpeg"},
+ {n:"Lekke band",d:"Snelle reparatie, ook voor e-bikes.",p:"Op offerte",img:"images/flattire.png"},
+ {n:"E-bike diagnose",d:"Controle van accu, display, motor en bekabeling.",p:"Op offerte",img:""}
+];
+// image: pad naar foto (mag leeg). Prijzen hieronder zijn voorbeelden, vervang ze door uw eigen.
+var PRODUCTS=[
+ {n:"Schwalbe binnenband DV17",c:"Banden",p:7.95,d:"Franse ventiel, voor stadsfietsen.",image:"images/Schwalbe-DV17.jpg"},
+ {n:"Stadsbanden 28 inch",c:"Banden",p:21.95,d:"Duurzame buitenband voor dagelijks gebruik.",image:"images/city-tires8001.jpg"},
+ {n:"Fatbike buitenband",c:"Banden",p:34.95,d:"Brede band 4.0 voor fatbikes.",image:""},
+ {n:"ABUS beugelslot",c:"Sloten",p:34.95,d:"Stevig slot met hoog beveiligingsniveau.",image:"images/Abus120.jpg"},
+ {n:"LED voorlicht",c:"Verlichting",p:14.95,d:"Helder voorlicht, eenvoudig te monteren.",image:"images/front-light-NF.jpg"},
+ {n:"LED achterlicht",c:"Verlichting",p:11.95,d:"Zichtbaar achterlicht voor veilig rijden.",image:"images/rear-light-NF.jpeg"},
+ {n:"Cortina fietskrat",c:"Accessoires",p:24.95,d:"Praktisch krat voor boodschappen.",image:"images/cortinakratten.jpg"},
+ {n:"Remblokken set",c:"Remmen",p:12.95,d:"Passend op overleg met uw fiets.",image:""},
+ {n:"Remkabel en binnenkabel",c:"Remmen",p:6.95,d:"Kabelset voor voor- of achterrem.",image:""},
+ {n:"Bafang e-bike display",c:"E-bike onderdelen",p:89.00,d:"Display voor Bafang middenmotor, op overleg.",image:""},
+ {n:"E-bike accu",c:"E-bike onderdelen",p:349.00,d:"Vervangende accu, op overleg.",image:""},
+ {n:"E-bike lader",c:"E-bike onderdelen",p:49.00,d:"Originele of compatibele lader.",image:""},
+ {n:"Fatbike velg en spaken",c:"Fatbike onderdelen",p:59.00,d:"Onderdelen voor fatbikes, op overleg.",image:""},
+ {n:"Ketting en smeerset",c:"Onderhoud",p:16.95,d:"Ketting, smeermiddel en reiniger.",image:""},
+ {n:"Gereedschapsset",c:"Onderhoud",p:29.95,d:"Basisgereedschap voor onderweg.",image:""}
+];
+var KOR=false; // zet op true als u de kleineondernemersregeling (KOR) gebruikt: dan geen btw op de factuur
+var ADRES="[straat en huisnummer], [postcode] Nijmegen"; // verplicht: vul uw vestigingsadres in
+var SHIP_COST=6.95, SHIP_FREE=75, OWN_COST=0; // pakketkosten, gratis vanaf, eigen bezorging in Nijmegen
+// ====================
+var cart={},cat="";
+function $(i){return document.getElementById(i)}
+function eur(x){return "€"+x.toFixed(2).replace(".",",")}
+function esc(s){return String(s).replace(/[&<>"]/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]})}
+function wa(t){return "https://wa.me/"+PHONE+"?text="+encodeURIComponent(t)}
+function im(s,a){return s?"<img src='"+esc(s)+"' alt='"+esc(a)+"' loading='lazy'>":"Afbeelding volgt"}
+$("svc").innerHTML=SERVICES.map(function(s){return "<div class='sc'><div class='pi'>"+im(s.img,s.n)+"</div><div class='t'><h3>"+esc(s.n)+"</h3><p>"+esc(s.d)+"</p><b>"+esc(s.p)+"</b></div></div>"}).join("");
+var cats=[];PRODUCTS.forEach(function(p){if(cats.indexOf(p.c)<0)cats.push(p.c)});
+function chips(){$("chips").innerHTML=["Alles"].concat(cats).map(function(c){var v=c==="Alles"?"":c;return "<button class='chip"+(cat===v?" on":"")+"' onclick='setCat(this.dataset.v)' data-v='"+esc(v)+"'>"+esc(c)+"</button>"}).join("")}
+function setCat(v){cat=v;chips();show()}
+function show(){
+  var q=$("q").value.toLowerCase(),s=$("so").value;
+  var l=PRODUCTS.map(function(p,i){p.i=i;return p}).filter(function(p){return(!cat||p.c===cat)&&(p.n+" "+p.d+" "+p.c).toLowerCase().indexOf(q)>-1});
+  if(s==="a")l.sort(function(a,b){return a.p-b.p});if(s==="d")l.sort(function(a,b){return b.p-a.p});if(s==="n")l.sort(function(a,b){return a.n.localeCompare(b.n)});
+  $("pg").innerHTML=l.length?l.map(function(p){return "<div class='pc'><div class='pi'>"+im(p.image,p.n)+"</div><div class='pb'><span class='c'>"+esc(p.c)+"</span><h3>"+esc(p.n)+"</h3><p>"+esc(p.d)+"</p><div class='pr'>"+eur(p.p)+" <small>"+(KOR?"":"incl. btw")+"</small></div><div class='act'><button class='btn' onclick='add("+p.i+")'>In winkelwagen</button><a class='btn o' target='_blank' rel='noopener' href='"+wa("Hallo Nicafiets, ik heb een vraag over: "+p.n)+"'>Vraag</a></div></div></div>"}).join(""):"<div class='empty'>Geen producten gevonden.</div>";
+}
+function add(i){cart[i]=(cart[i]||0)+1;draw();tc(true)}
+function chg(i,d){cart[i]=(cart[i]||0)+d;if(cart[i]<=0)delete cart[i];draw()}
+function total(){var t=0;for(var i in cart)t+=cart[i]*PRODUCTS[i].p;return t}
+function ship(){var v=$("cm").value,t=total();if(!t||v==="o")return 0;if(v==="p")return t>=SHIP_FREE?0:SHIP_COST;return OWN_COST}
+function draw(){var n=0,h="";for(var i in cart){var p=PRODUCTS[i];n+=cart[i];h+="<div class='row'><span>"+esc(p.n)+"<br><small>"+eur(p.p)+"</small></span><span class='q'><button onclick='chg("+i+",-1)'>−</button> "+cart[i]+" <button onclick='chg("+i+",1)'>+</button></span></div>"}
+  $("ci").innerHTML=h||"<p class='note'>Uw winkelwagen is leeg.</p>";$("cc").textContent=n;$("sh").textContent=ship()?eur(ship()):"Gratis";$("tot").textContent=eur(total()+ship())}
+function tc(o){$("dr").classList.toggle("open",o)}
+function checkout(){var l=[];for(var i in cart)l.push(cart[i]+"x "+PRODUCTS[i].n+" ("+eur(cart[i]*PRODUCTS[i].p)+")");if(!l.length)return;
+  window.open(wa("Hallo Nicafiets, ik wil bestellen:\n"+l.join("\n")+"\nVerzendkosten: "+eur(ship())+"\nTotaal: "+eur(total()+ship())+"\nLevering: "+$("cm").options[$("cm").selectedIndex].text+"\nNaam: "+$("cn").value+"\nAdres: "+$("ca").value),"_blank")}
+function send(){window.open(wa("Hallo Nicafiets,\nNaam: "+$("n").value+"\nFiets: "+$("b").value+"\nPostcode: "+$("z").value+"\nBericht: "+$("m").value),"_blank")}
+
+var BEDRIJF="Nicafiets (handelsnaam van VANGOMEZ), KvK 99784017, BTW NL005412642B83, WhatsApp +31 6 43270969, e-mail infovangomez@gmail.com, "+ADRES+".";
+var LEGAL={
+voorwaarden:["Algemene voorwaarden",[
+["1. Ondernemer",BEDRIJF],
+["2. Toepasselijkheid","Deze voorwaarden gelden voor alle aanbiedingen, bestellingen, leveringen en diensten van Nicafiets aan consumenten."],
+["3. Aanbod en prijzen","Alle prijzen zijn in euro en "+(KOR?"zonder btw (kleineondernemersregeling)":"inclusief btw")+", exclusief eventuele verzendkosten en montage. Wij hebben het recht kennelijke fouten in prijzen of aanbod te corrigeren. Producten kunnen vanuit onze leveranciers worden geleverd."],
+["4. Bestelling en overeenkomst","De overeenkomst komt tot stand zodra wij uw bestelling schriftelijk (via WhatsApp of e-mail) bevestigen. Wij bevestigen daarin prijs, voorraad, levertijd en verzendkosten."],
+["5. Betaling","Betaling vindt plaats via iDEAL of een andere betaalmethode via een betaallink van Mollie. Wij leveren of monteren pas na ontvangst van de betaling, tenzij anders overeengekomen."],
+["6. Levering","Wij streven naar levering binnen de aangegeven levertijd. Overschrijding is geen reden voor ontbinding, tenzij de levertijd meer dan 30 dagen wordt overschreden. Dan kunt u kosteloos annuleren en ontvangt u uw betaling terug."],
+["7. Herroepingsrecht","Bij producten heeft u 14 dagen bedenktijd. Zie ons retourbeleid voor de werkwijze en het herroepingsformulier."],
+["8. Garantie en conformiteit","Producten voldoen aan de overeenkomst en de wettelijke garantie. Gebreken meldt u binnen redelijke tijd na ontdekking. Garantie vervalt bij verkeerd gebruik, ondeskundige montage door derden of normale slijtage."],
+["9. Reparatie en montage","Voor reparaties en montage ontvangt u vooraf een offerte. Wij voeren het werk deskundig uit. Onze aansprakelijkheid is beperkt tot het bedrag van de betreffende opdracht, behalve bij opzet of grove schuld."],
+["10. Klachten","Meld klachten zo snel mogelijk via e-mail of WhatsApp. Wij reageren binnen 14 dagen met een inhoudelijke reactie."],
+["11. Toepasselijk recht","Op alle overeenkomsten is Nederlands recht van toepassing. Geschillen worden voorgelegd aan de bevoegde rechter in Nederland."]]],
+privacy:["Privacyverklaring",[
+["Wie zijn wij",BEDRIJF],
+["Welke gegevens","Naam, adres, telefoonnummer, e-mailadres, fietsgegevens en bestelinformatie die u zelf aan ons doorgeeft via WhatsApp, e-mail of de webshop."],
+["Waarvoor","Voor het uitvoeren van uw bestelling of reparatie, het versturen van betaallinks, levering, garantie, klantcontact en onze wettelijke administratie."],
+["Met wie delen wij","Alleen waar nodig met onze leveranciers (voor levering), vervoerders, Mollie (betalingen) en WhatsApp/Meta (berichten). Wij verkopen uw gegevens niet."],
+["Bewaartermijn","Bestel- en factuurgegevens bewaren wij zeven jaar vanwege de fiscale bewaarplicht. Overige gegevens verwijderen wij zodra ze niet meer nodig zijn."],
+["Cookies","Deze website gebruikt geen tracking- of advertentiecookies."],
+["Uw rechten","U kunt uw gegevens inzien, laten corrigeren of laten verwijderen via infovangomez@gmail.com. U kunt ook een klacht indienen bij de Autoriteit Persoonsgegevens."]]],
+retour:["Retourbeleid en herroepingsformulier",[
+["Bedenktijd van 14 dagen","U mag een product binnen 14 dagen na ontvangst zonder opgave van reden herroepen. Meld dit schriftelijk via e-mail of WhatsApp."],
+["Retourneren","Stuur het product binnen 14 dagen na uw melding terug, ongebruikt en in de originele verpakking. De kosten van het terugsturen zijn voor u, tenzij wij anders afspreken."],
+["Terugbetaling","Wij betalen het aankoopbedrag, inclusief standaard verzendkosten, binnen 14 dagen na ontvangst van de retourzending terug, via dezelfde betaalmethode."],
+["Waardevermindering","Bent u het product meer gaan gebruiken dan nodig om het te beoordelen, dan kunnen wij een waardevermindering in rekening brengen."],
+["Uitzonderingen","Op maat gemaakte of aangepaste producten en reeds uitgevoerde diensten waarmee op uw verzoek binnen de bedenktijd is begonnen, kunt u niet of beperkt herroepen."],
+["Herroepingsformulier","Aan: Nicafiets, "+ADRES+", infovangomez@gmail.com. Ik/Wij deel(en) u hierbij mede dat ik/wij onze overeenkomst betreffende de verkoop van het volgende product herroep(en): [product]. Besteld op/ontvangen op: [datum]. Naam: [naam]. Adres: [adres]. Datum: [datum]. Handtekening (alleen bij papieren formulier)."]]],
+verzending:["Verzending en levering",[
+["Pakketbezorging","Wij verzenden via onze leveranciers (dropshipping) of vanuit eigen voorraad. De levertijd is meestal 1 tot 5 werkdagen na betaling en staat in uw orderbevestiging. U ontvangt waar mogelijk een track-and-trace."],
+["Verzendkosten","Pakketbezorging kost "+eur(SHIP_COST)+", gratis vanaf "+eur(SHIP_FREE)+". Eigen bezorging in Nijmegen: "+(OWN_COST?eur(OWN_COST):"gratis")+". Ophalen is gratis na afspraak."],
+["Eigen bezorging en montage","In Nijmegen en omgeving bezorgen en monteren wij op afspraak bij u thuis. Montage wordt apart op offerte berekend."],
+["Schade of ontbrekende artikelen","Controleer uw pakket bij ontvangst en meld schade of ontbrekende artikelen binnen 48 uur via e-mail of WhatsApp, met foto. Wij zorgen voor een oplossing."]]]
+};
+function lg(k){location.hash=k}
+function lgo(){var k=location.hash.slice(1),d=LEGAL[k];if(!d){$("lgw").classList.remove("open");return}
+  $("lgb").innerHTML="<button class='btn o' style='float:right' onclick='lgc()'>Sluiten</button><h2>"+esc(d[0])+"</h2><p class='note'>Laatst bijgewerkt: november 2026</p>"+d[1].map(function(r){return "<h3>"+esc(r[0])+"</h3><p>"+esc(r[1])+"</p>"}).join("");
+  $("lgw").classList.add("open");$("lgw").scrollTop=0}
+function lgc(){history.replaceState(null,"",location.pathname);lgo()}
+window.addEventListener("hashchange",lgo);document.addEventListener("keydown",function(e){if(e.key==="Escape")lgc()});
+$("adr").innerHTML="<b style='color:#fff'>NICAFIETS</b><br>Powered by VANGOMEZ<br>KvK 99784017<br>BTW NL005412642B83<br>"+esc(ADRES);
+if(KOR)$("vl").textContent="Prijzen zijn zonder btw (kleineondernemersregeling). Voeg toe aan de winkelwagen en bestel via WhatsApp, of laat ons monteren.";
+lgo();
+chips();show();draw();
 </script>
 </body>
 </html>
